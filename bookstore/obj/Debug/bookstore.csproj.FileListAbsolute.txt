@@ -35,3 +35,9 @@ F:\ASP FIRT\Bookstore\bookstore\bookstore\obj\Debug\bookstore.dll
 F:\ASP FIRT\Bookstore\bookstore\bookstore\obj\Debug\bookstore.pdb
 G:\asp.net\bookstore\bookstore\obj\Debug\bookstore.dll
 G:\asp.net\bookstore\bookstore\obj\Debug\bookstore.pdb
+G:\asp.net\bookstore\bookstore\bin\bookstore.dll.config
+G:\asp.net\bookstore\bookstore\bin\bookstore.dll
+G:\asp.net\bookstore\bookstore\bin\bookstore.pdb
+G:\asp.net\bookstore\bookstore\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+G:\asp.net\bookstore\bookstore\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+G:\asp.net\bookstore\bookstore\obj\Debug\bookstore.csproj.CopyComplete
