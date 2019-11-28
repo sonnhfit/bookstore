@@ -8,6 +8,7 @@ namespace DAL
 {
     class DataConnect
     {
+        //the nay moi la code dung
         //day la code
     }
 }
