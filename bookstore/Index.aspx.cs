@@ -12,7 +12,8 @@ namespace bookstore
         protected void Page_Load(object sender, EventArgs e)
         {
             //nguyen son test
-            // chu code
+            // chu code4
+            // them dong nua
         }
     }
 }
