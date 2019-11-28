@@ -33,3 +33,5 @@ F:\ASP FIRT\Bookstore\bookstore\bookstore\obj\Debug\bookstore.csprojAssemblyRefe
 F:\ASP FIRT\Bookstore\bookstore\bookstore\obj\Debug\bookstore.csproj.CopyComplete
 F:\ASP FIRT\Bookstore\bookstore\bookstore\obj\Debug\bookstore.dll
 F:\ASP FIRT\Bookstore\bookstore\bookstore\obj\Debug\bookstore.pdb
+G:\asp.net\bookstore\bookstore\obj\Debug\bookstore.dll
+G:\asp.net\bookstore\bookstore\obj\Debug\bookstore.pdb
