@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    class Class_taikhoan
+  public  class Class_taikhoan
     {
         string user, pass, sodt, hoten, quyentruycap;
 

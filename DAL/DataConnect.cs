@@ -3,7 +3,7 @@ using System.Data.SqlClient;
 
 namespace DAL
 {
-    class DataConnect
+  public  class DataConnect
     {
        // ket noi csdl
         public SqlConnection getcon()

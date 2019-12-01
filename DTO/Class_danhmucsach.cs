@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    class Class_danhmucsach
+   public class Class_danhmucsach
     {
         string maloaisach, tenloaisach;
 

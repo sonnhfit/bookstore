@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    class Class_khachhang
+  public  class Class_khachhang
     {
         string makh, tenkh, email, sodidong, socodinh, ptttoan, diachi, noidungyeucau;
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    class Class_hoadon
+   public class Class_hoadon
     {
         string maDH, maKH, tenKH, masach, tensach;
         Int16 soluong;

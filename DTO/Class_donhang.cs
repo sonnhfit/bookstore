@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    class Class_donhang
+   public class Class_donhang
     {
         string maHD, makh, masach;
         Int16 soluong;
