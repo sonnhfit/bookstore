@@ -3,20 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DTO;
 using DAL;
+using DTO;
 using System.Data;
 using System.Data.SqlClient;
-
-
-namespace BUS.trangchu
+namespace BUS
 {
     class trangchu_bus
     {
         DataConnect da = new DataConnect();
         Class_danhmucsach danhmuc = new Class_danhmucsach();
         Class_sach sach = new Class_sach();
-        class_tintuc tin = new class_tintuc();
 
         // lay danh muc sach
         public DataTable getDanhmucsach()
@@ -24,7 +21,7 @@ namespace BUS.trangchu
 
             string sql = "select TenloaiSach from DanhMucLoaiSach";
             DataTable dt = new DataTable();
-            dt=da.gettable(sql);
+            dt = da.gettable(sql);
 
             return dt;
         }

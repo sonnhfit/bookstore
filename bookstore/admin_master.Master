@@ -1,0 +1,61 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="admin_master.master.cs" Inherits="bookstore.admin_master" %>
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Web Shop</title>      
+    <link href="data/Style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+ <form id="form1" runat="server">
+<div id = "page">  
+ <div id = "header">
+       
+         <div id = "menung"> 
+            <ul>
+                <li><a href="ad_home.aspx"><span>Admin Home</span></a> </li>
+                 <li><a href="taikhoan.aspx"><span>Tài khoản</span></a></li>
+                <li><a href="Kho.aspx"><span>Kho hàng</span></a></li>
+                <li><a href="donhang.aspx"><span>Đơn hàng</span></a></li>
+                <li><a href="khachhang.aspx"><span>Khách Hàng</span></a></li>
+                    
+            </ul>
+         </div> <%--End menng--%>
+</div> <%----- End Header--%>
+<div id = "main">   
+    
+<div id = "left">
+     <div id="menud">
+		
+	</div><!-- END menud -->      
+	
+</div> <%-- End left --%>	
+    
+
+    <div id="content">           
+    <asp:ContentPlaceHolder ID="main_body" runat="server">
+                              Nội dung tin ở đây</asp:ContentPlaceHolder>    
+</div><%-- End content --%>
+    <div id="right">         
+       
+     
+</div> <%--End right--%> 
+ </div> <%--End Main--%>  
+<div id="footer">
+    <p>
+         &copy; Copyright : 12/2019<br />
+         ASP.NET  project
+      </p>
+      <p>
+         
+         Khoa CNTT - ĐHCN Hà Nội<br />
+         Minh Khai, Từ Liêm, Hà Nội
+      </p>         
+    </div> <%--End Footer--%>
+ </div><%-- End page--%>
+</form>
+</body>
+</html>
+
