@@ -40,5 +40,32 @@ namespace DAL
 
         }
 
+        public bool ktratk(string user,string pass)
+        {
+            SqlConnection con = getcon();
+            con.Open();
+            string sql = "select * from taikhoan where taikhoan='" + user + "' and matkhau='" + pass + "'";
+            SqlCommand cmd = new SqlCommand(sql, con);
+     
+         
+            SqlDataReader sdr = cmd.ExecuteReader();
+            if (sdr.Read())
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+
+            }
+            con.Close();    
+
+}
+
+   
+    
+    
+    
     }
 }
+    

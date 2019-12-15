@@ -68,6 +68,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ad\ad_home.aspx" />
+    <Content Include="ad\dangnhap.aspx" />
+    <Content Include="ad\donhang.aspx" />
+    <Content Include="ad\khachhang.aspx" />
+    <Content Include="ad\Kho.aspx" />
     <Content Include="ad\taikhoan.aspx" />
     <Content Include="Content\cgAQvhbvpfw.css" />
     <Content Include="Content\colorbox.css" />
@@ -189,6 +193,34 @@
     <Compile Include="ad\ad_home.aspx.designer.cs">
       <DependentUpon>ad_home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ad\dangnhap.aspx.cs">
+      <DependentUpon>dangnhap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ad\dangnhap.aspx.designer.cs">
+      <DependentUpon>dangnhap.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ad\donhang.aspx.cs">
+      <DependentUpon>donhang.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ad\donhang.aspx.designer.cs">
+      <DependentUpon>donhang.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ad\khachhang.aspx.cs">
+      <DependentUpon>khachhang.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ad\khachhang.aspx.designer.cs">
+      <DependentUpon>khachhang.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ad\Kho.aspx.cs">
+      <DependentUpon>Kho.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ad\Kho.aspx.designer.cs">
+      <DependentUpon>Kho.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ad\taikhoan.aspx.cs">
       <DependentUpon>taikhoan.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -232,6 +264,10 @@
     <Folder Include="Script\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{c3959ef2-2b6c-45b2-ae6f-580807769432}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DTO\DTO.csproj">
       <Project>{56fefdda-3186-45b0-b3e2-eb1b9d51454e}</Project>
       <Name>DTO</Name>
