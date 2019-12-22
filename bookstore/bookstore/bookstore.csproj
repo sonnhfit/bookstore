@@ -1,0 +1,321 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{49757ED9-4C67-4A82-9EE6-88D8A404D376}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>bookstore</RootNamespace>
+    <AssemblyName>bookstore</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44309</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ad\ad_home.aspx" />
+    <Content Include="ad\dangnhap.aspx" />
+    <Content Include="ad\donhang.aspx" />
+    <Content Include="ad\khachhang.aspx" />
+    <Content Include="ad\Kho.aspx" />
+    <Content Include="ad\taikhoan.aspx" />
+    <Content Include="Content\cgAQvhbvpfw.css" />
+    <Content Include="Content\colorbox.css" />
+    <Content Include="Content\EG_aoEQwpxQ.css" />
+    <Content Include="Content\flexnav.css" />
+    <Content Include="Content\img\20245655_852292608267128_3857842386112081283_n%281%29.png" />
+    <Content Include="Content\img\20245655_852292608267128_3857842386112081283_n.png" />
+    <Content Include="Content\img\33579895_1018487078314346_4907436457112633344_o.jpg" />
+    <Content Include="Content\img\50-nam-thuc-hien-di-chuc-chu-tich-ho-chi-minh.jpg" />
+    <Content Include="Content\img\70799706_1377940562368994_8160074611245973504_n.jpg" />
+    <Content Include="Content\img\70936813_1377941979035519_5642539183772794880_n.jpg" />
+    <Content Include="Content\img\71104991_1377943812368669_5553253247549964288_n.jpg" />
+    <Content Include="Content\img\71217203_1377943845701999_6003896476265086976_n.jpg" />
+    <Content Include="Content\img\71332103_1377942015702182_8132067696444440576_n.jpg" />
+    <Content Include="Content\img\71638539_1377944762368574_7900506209717846016_n.jpg" />
+    <Content Include="Content\img\71773926_1377944799035237_3823591169225392128_n.jpg" />
+    <Content Include="Content\img\71819989_1377940499035667_4488617282498461696_n.jpg" />
+    <Content Include="Content\img\76601308_1431715596991490_8219302798668333056_n.jpg" />
+    <Content Include="Content\img\76619290_1431715786991471_7365890164138180608_n.jpg" />
+    <Content Include="Content\img\76710674_1794200824056822_5405817469933715456_n.jpg" />
+    <Content Include="Content\img\bach-khoa-tri-thuc-gia-dinh.jpg" />
+    <Content Include="Content\img\bao-vat-quoc-gia-viet-nam.jpg" />
+    <Content Include="Content\img\bien-phap-phng-ngua-toi-pham-va-phong-chong-vi-pham-phap-luat-trong-hoc-sinh-sinh-vien.jpg" />
+    <Content Include="Content\img\bien-phap-phong-ngua-toi-pham-va-phong-chong-vi-pham-phap-luat-trong-hoc-sinh-sinh-vien.jpg" />
+    <Content Include="Content\img\bieu-thue-suat-uu-dai-thue-xuat-khau-nhap-khau-2019.jpg" />
+    <Content Include="Content\img\bieu-thue-xuat-khau-nhap-khau-2019-song-ngu-viet-anh.jpg" />
+    <Content Include="Content\img\binh-luan-khoa-hoc-bo-luat-hinh-su-2015-2017--ts-tran-van-bien-dinh-the-hung.jpg" />
+    <Content Include="Content\img\boi-duong-va-hoan-thien-nhan-cach-cho-tre-V1237P.png" />
+    <Content Include="Content\img\cac-mau-dien-van-bai-phat-bieu-hoi-nghi-hoi-thao.jpg" />
+    <Content Include="Content\img\cac-thong-tu-lien-tich-cua-toa-an-vien-kiem-sat-bo-tu-phap-bo-cong-an.jpg" />
+    <Content Include="Content\img\cam-nang-kien-thuc-trong-cuoc-song-danh-cho-gia-dinh-ca-nhan.jpg" />
+    <Content Include="Content\img\cam-nang-nghiep-vu-danh-cho-giao-vien-lanh-dao-truong-hoc.jpg" />
+    <Content Include="Content\img\cam-nang-nghiep-vu-danh-cho-ke-toan-truong-hoc-quy-dinh-moi-ve-quan-ly-thu-chi-trong-nha-truong.jpg" />
+    <Content Include="Content\img\cam-nang-phap-luat-ve-moi-gioi-va-dau-tu-kinh-doanh-dat-dong-san.jpg" />
+    <Content Include="Content\img\cam-nang-xay-dung-phat-trien-to-chuc-cong-doan.jpg" />
+    <Content Include="Content\img\cart.png" />
+    <Content Include="Content\img\che-do-chinh-sach-cac-bai-dien-van-quan-doi-quoc-phong.jpg" />
+    <Content Include="Content\img\che-do-ke-toan-theo-thong-tu-107.jpg" />
+    <Content Include="Content\img\cong-tac-bao-ve-chu-quyen-bien-dao-trong-tinh-hinh-moi.jpg" />
+    <Content Include="Content\img\doanh-nhan-va-thien-ngoi-thien-cho-tam-hon-thanh-than-hanh-phuc-yoga.jpg" />
+    <Content Include="Content\img\gia-pha-dong-ho-dong-toc-pha-do-tuc-tho-cung-v889d.png" />
+    <Content Include="Content\img\he-thong-bieu-mau-va-cac-nghi-quyet-moi-2019-cua-hoi-dong-tham-phan.jpg" />
+    <Content Include="Content\img\he-thong-toan-van-luat-dat-dai.jpg" />
+    <Content Include="Content\img\hoc-tap-chuyen-de-2019-lam-theo-tu-tuong-dao-duc-phong-cach-ho-chi-minh.jpg" />
+    <Content Include="Content\img\hoc-tap-va-lam-theo-tam-guong-dao-duc-phong-cach-ho-chi-minh.jpg" />
+    <Content Include="Content\img\huong-dan-che-do-ke-toan-ngan-sach-va-tai-chinh-xa-z.jpg" />
+    <Content Include="Content\img\huong-dan-che-do-ke-toan-ngan-sach-va-tai-chinh-xa.jpg" />
+    <Content Include="Content\img\huong-dan-hoc-tap-chuyen-de-2018-xay-dung-phong-cach-tac-phong-cong-tac-ho-chi-minh.jpg" />
+    <Content Include="Content\img\huong-dan-ke-toan-nghiep-vu-thue-doi-voi-hang-hoa-xuat-nhap-khau-khai-bao-hai-quan.jpg" />
+    <Content Include="Content\img\huong-dan-quy-trinh-ky-thuat-chuyen-nganh-phau-thuat-tao-hinh-tham-my.jpg" />
+    <Content Include="Content\img\huong-dan-the-thuc-va-ky-thuat-trinh-bay-van-ban-bai-phat-bieu-mau-dien-van.jpg" />
+    <Content Include="Content\img\huong-dan-thuc-hanh-ke-toan-128-so-do-ke-toan-thong-tu-107.jpg" />
+    <Content Include="Content\img\icon_home.png" />
+    <Content Include="Content\img\ky-nang-to-chuc-su-kien-mau-dien-van-bai-phat-bieu.jpg" />
+    <Content Include="Content\img\last-right.png" />
+    <Content Include="Content\img\le-via-van-khan-than-tai-mong-10-thang-gieng.jpg" />
+    <Content Include="Content\img\logo-bo-cong-thuong.png" />
+    <Content Include="Content\img\luat-bao-hiem-xa-hoi-luat-bao-hiem-y-te.jpg" />
+    <Content Include="Content\img\luat-hop-tac-xa-va-van-ban-huong-dan-thi-hanh-moi-nhat-tt.jpg" />
+    <Content Include="Content\img\luat-ke-toan-va-che-do-ke-toan-doanh-nghiep-moi-nhat.jpg" />
+    <Content Include="Content\img\luat-nhan-qua-hay-tu-minh-thay-doi-so-phan-de-duoc-hanh-phuc-vien-man.jpg" />
+    <Content Include="Content\img\luat-quy-hoach-va-nhung-van-de-can-thiet-trong-quan-ly-quy-hoach.jpg" />
+    <Content Include="Content\img\m2.png" />
+    <Content Include="Content\img\mau-dien-van-bai-phat-bieu-nganh-cong-an.jpg" />
+    <Content Include="Content\img\next-right.png" />
+    <Content Include="Content\img\nghe-thuat-dam-phan-va-thuong-luong-ky-nang-doi-no.png" />
+    <Content Include="Content\img\nghiep-vu-cong-tac-cong-doan-nang-cao-nang-luc-cong-doan.jpg" />
+    <Content Include="Content\img\nghiep-vu-ke-toan-nha-nuoc-don-vi-hanh-chinh-su-nghiep.jpg" />
+    <Content Include="Content\img\nha-sach-mua-ban-sach-online-tren-mang.jpg" />
+    <Content Include="Content\img\nha-sach-nam-viet-namvietbook-2%281%29.jpg" />
+    <Content Include="Content\img\nha-sach-nam-viet-namvietbook-3.jpg" />
+    <Content Include="Content\img\nha-sach-nam-viet-namvietbook-4.jpg" />
+    <Content Include="Content\img\nhan-tuong-hoc-nghe-thuat-cua-so-phan.jpg" />
+    <Content Include="Content\img\nhung-meo-vat-cac-benh-thuong-gap-hang-ngay.jpg" />
+    <Content Include="Content\img\nhung-quan-niem-cua-nguoi-xua-ve-diem-bao-may-man-ruoc-tai-loc.jpg" />
+    <Content Include="Content\img\nhung-quy-dinh-moi-ve-kiem-soat-quyen-luc.jpg" />
+    <Content Include="Content\img\phuong-phap-dinh-toi-danh-voi-538-toi-danh-trong-bo-luat-hinh-su-2017%281%29.jpg" />
+    <Content Include="Content\img\Sach-ky-nang-song-nghiep-vu-chuyen-mon.jpg" />
+    <Content Include="Content\img\so-tay-cong-tac-doan.jpg" />
+    <Content Include="Content\img\so-tay-cong-tac-thanh-tra-phong-chong-tham-nhung-lang-phi-1.jpg" />
+    <Content Include="Content\img\so-tay-nhung-bai-thuoc-don-gian-hieu-qua-thuong-dung.jpg" />
+    <Content Include="Content\img\so-tay-phap-luat-bat-dong-san.jpg" />
+    <Content Include="Content\img\tai-lieu-danh-cho-can-bo-xa-phuong-thi-tran-bo-tieu-chi-danh-gia-phan-hang-san-pham-ocop.jpg" />
+    <Content Include="Content\img\tai-lieu-huong-dan-quy-trinh-ky-thuat-ngoai-khoa-chuyen-khoa-phau-thuat.jpg" />
+    <Content Include="Content\img\tang-cuong-xay-dung-to-chuc-dang.jpg" />
+    <Content Include="Content\img\tim-hieu-cac-quy-dinh-phap-luat-danh-cho-bi-thu-doan.jpg" />
+    <Content Include="Content\img\tim-hieu-di-tich-lich-su-cac-nha-tu.jpg" />
+    <Content Include="Content\img\tim-hieu-kinh-do-cac-trieu-dai-viet-nam-qc.jpg" />
+    <Content Include="Content\img\tim-hieu-lich-su-dang-cong-san-viet-nam-qua-cac-ky-dai-hoi-V956D.jpg" />
+    <Content Include="Content\img\tim-hieu-luat-thanh-nien-dieu-le-doan-thanh-nien.jpg" />
+    <Content Include="Content\img\tim-hieu-nhan-vat-lich-su-van-hoa-viet-nam.jpg" />
+    <Content Include="Content\img\tim-hieu-ve-kinh-do-cac-trieu-dai-viet-nam-gs-ts-cao-ngoc-lan-ts-cao-vu-minh.jpg" />
+    <Content Include="Content\img\tin-nguong-tho-cung-to-tien-va-ban-sac-van-hoa-nguoi-viet-bai-van-cung.jpg" />
+    <Content Include="Content\img\tuyen-chon-tham-khao-cac-bai-dien-van-phat-bieu-trong-truong-hoc.jpg" />
+    <Content Include="Content\img\xem-ngay-chon-gio-theo-lich-can-chi-nam-2020-2021-2022.jpg" />
+    <Content Include="Content\layout.css" />
+    <Content Include="Content\main.6d37052f.css" />
+    <Content Include="Content\Mobile.css" />
+    <Content Include="Content\nivo-slider.css" />
+    <Content Include="Content\rU3n5n4N7mi.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="data\Style.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Index.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="admin_master.Master.cs">
+      <DependentUpon>admin_master.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_master.Master.designer.cs">
+      <DependentUpon>admin_master.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ad\ad_home.aspx.cs">
+      <DependentUpon>ad_home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ad\ad_home.aspx.designer.cs">
+      <DependentUpon>ad_home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ad\dangnhap.aspx.cs">
+      <DependentUpon>dangnhap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ad\dangnhap.aspx.designer.cs">
+      <DependentUpon>dangnhap.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ad\donhang.aspx.cs">
+      <DependentUpon>donhang.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ad\donhang.aspx.designer.cs">
+      <DependentUpon>donhang.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ad\khachhang.aspx.cs">
+      <DependentUpon>khachhang.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ad\khachhang.aspx.designer.cs">
+      <DependentUpon>khachhang.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ad\Kho.aspx.cs">
+      <DependentUpon>Kho.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ad\Kho.aspx.designer.cs">
+      <DependentUpon>Kho.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ad\taikhoan.aspx.cs">
+      <DependentUpon>taikhoan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ad\taikhoan.aspx.designer.cs">
+      <DependentUpon>taikhoan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Base.Master.cs">
+      <DependentUpon>Base.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Base.Master.designer.cs">
+      <DependentUpon>Base.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Base.Master" />
+    <Content Include="admin_master.Master" />
+    <None Include="packages.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+    <Folder Include="Script\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{c3959ef2-2b6c-45b2-ae6f-580807769432}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{56fefdda-3186-45b0-b3e2-eb1b9d51454e}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52267</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44309/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <Target Name="CopyRoslynFiles" AfterTargets="AfterBuild" Condition="!$(Disable_CopyWebApplication) And '$(OutDir)' != '$(OutputPath)'">
+    <ItemGroup>
+      <RoslynFiles Include="$(CscToolPath)\*" />
+    </ItemGroup>
+    <MakeDir Directories="$(WebProjectOutputDir)\bin\roslyn" />
+    <Copy SourceFiles="@(RoslynFiles)" DestinationFolder="$(WebProjectOutputDir)\bin\roslyn" SkipUnchangedFiles="true" Retries="$(CopyRetryCount)" RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

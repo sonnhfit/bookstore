@@ -1,1 +1,0 @@
-ssh -i ~/private-key/id_rsa_3 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $*
