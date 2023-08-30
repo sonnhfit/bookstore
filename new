@@ -1,0 +1,1840 @@
+ root@nghia1-vu:~/awx-17.1.0/installer# ansible-playbook -vvvv -i inventory install.yml
+ansible-playbook 2.10.8
+  config file = None
+  configured module search path = ['/root/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  executable location = /usr/bin/ansible-playbook
+  python version = 3.10.12 (main, Jun 11 2023, 05:26:28) [GCC 11.4.0]
+No config file found; using defaults
+setting up inventory plugins
+host_list declined parsing /root/awx-17.1.0/installer/inventory as it did not pass its verify_file() method
+script declined parsing /root/awx-17.1.0/installer/inventory as it did not pass its verify_file() method
+auto declined parsing /root/awx-17.1.0/installer/inventory as it did not pass its verify_file() method
+Set default localhost to localhost
+Parsed /root/awx-17.1.0/installer/inventory inventory source with ini plugin
+redirecting (type: modules) ansible.builtin.docker_login to community.general.docker_login
+Loading collection community.general from /usr/lib/python3/dist-packages/ansible_collections/community/general
+redirecting (type: modules) ansible.builtin.docker_image to community.general.docker_image
+redirecting (type: modules) ansible.builtin.docker_image to community.general.docker_image
+statically imported: /root/awx-17.1.0/installer/roles/local_docker/tasks/upgrade_postgres.yml
+redirecting (type: modules) ansible.builtin.docker_compose to community.general.docker_compose
+statically imported: /root/awx-17.1.0/installer/roles/local_docker/tasks/set_image.yml
+redirecting (type: modules) ansible.builtin.docker_image to community.general.docker_image
+redirecting (type: modules) ansible.builtin.docker_image to community.general.docker_image
+statically imported: /root/awx-17.1.0/installer/roles/local_docker/tasks/compose.yml
+redirecting (type: modules) ansible.builtin.docker_compose to community.general.docker_compose
+redirecting (type: modules) ansible.builtin.docker_compose to community.general.docker_compose
+Loading callback plugin default of type stdout, v2.0 from /usr/lib/python3/dist-packages/ansible/plugins/callback/default.py
+Skipping callback 'default', as we already have a stdout callback.
+Skipping callback 'minimal', as we already have a stdout callback.
+Skipping callback 'oneline', as we already have a stdout callback.
+
+PLAYBOOK: install.yml *********************************************************************************************************************************************************************************************Positional arguments: install.yml
+verbosity: 4
+connection: smart
+timeout: 10
+become_method: sudo
+tags: ('all',)
+inventory: ('/root/awx-17.1.0/installer/inventory',)
+forks: 5
+1 plays in install.yml
+
+PLAY [Build and deploy AWX] ***************************************************************************************************************************************************************************************
+TASK [Gathering Facts] ********************************************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/install.yml:2
+<localhost> ESTABLISH LOCAL CONNECTION FOR USER: root
+<localhost> EXEC /bin/sh -c 'echo ~root && sleep 0'
+<localhost> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /root/.ansible/tmp `"&& mkdir "` echo /root/.ansible/tmp/ansible-tmp-1693350971.0643723-97229-232156858228412 `" && echo ansible-tmp-1693350971.0643723-97229-232156858228412="` echo /root/.ansible/tmp/ansible-tmp-1693350971.0643723-97229-232156858228412 `" ) && sleep 0'
+Using module file /usr/lib/python3/dist-packages/ansible/modules/setup.py
+<localhost> PUT /root/.ansible/tmp/ansible-local-97226ye1hkj6q/tmpepr7cpbr TO /root/.ansible/tmp/ansible-tmp-1693350971.0643723-97229-232156858228412/AnsiballZ_setup.py
+<localhost> EXEC /bin/sh -c 'chmod u+x /root/.ansible/tmp/ansible-tmp-1693350971.0643723-97229-232156858228412/ /root/.ansible/tmp/ansible-tmp-1693350971.0643723-97229-232156858228412/AnsiballZ_setup.py && sleep 0'
+<localhost> EXEC /bin/sh -c '/usr/bin/env python3 /root/.ansible/tmp/ansible-tmp-1693350971.0643723-97229-232156858228412/AnsiballZ_setup.py && sleep 0'
+<localhost> EXEC /bin/sh -c 'rm -f -r /root/.ansible/tmp/ansible-tmp-1693350971.0643723-97229-232156858228412/ > /dev/null 2>&1 && sleep 0'
+ok: [localhost]
+META: ran handlers
+
+TASK [check_vars : admin_password should be defined] **************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/check_vars/tasks/main.yml:3
+ok: [localhost] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [check_vars : include_tasks] *********************************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/check_vars/tasks/main.yml:9
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [check_vars : include_tasks] *********************************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/check_vars/tasks/main.yml:12
+included: /root/awx-17.1.0/installer/roles/check_vars/tasks/check_docker.yml for localhost
+
+TASK [check_vars : postgres_data_dir should be defined] ***********************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/check_vars/tasks/check_docker.yml:3
+ok: [localhost] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [image_build : Set global version if not provided] ***********************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/image_build/tasks/main.yml:2
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [image_build : Verify awx-logos directory exists for official install] ***************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/image_build/tasks/main.yml:7
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [image_build : Copy logos for inclusion in sdist] ************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/image_build/tasks/main.yml:14
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [image_build : Set awx image name] ***************************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/image_build/tasks/main.yml:20
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [image_build : Render Dockerfile] ****************************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/image_build/tasks/main.yml:24
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [image_build : Build AWX image] ******************************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/image_build/tasks/main.yml:30
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [image_build : Tag awx images as latest] *********************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/image_build/tasks/main.yml:33
+skipping: [localhost] => (item=awx)  => {
+    "ansible_loop_var": "item",
+    "changed": false,
+    "item": "awx",
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [image_push : Authenticate with Docker registry if registry password given] **********************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/image_push/tasks/main.yml:2
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [image_push : Remove awx image] ******************************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/image_push/tasks/main.yml:12
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [image_push : Tag and push awx image to registry] ************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/image_push/tasks/main.yml:20
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [image_push : Set full image path for Registry] **************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/image_push/tasks/main.yml:30
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [kubernetes : Generate broadcast websocket secret] ***********************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:2
+skipping: [localhost] => {
+    "censored": "the output has been hidden due to the fact that 'no_log: true' was specified for this result",
+    "changed": false
+}
+
+TASK [kubernetes : fail] ******************************************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:9
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [kubernetes : include_tasks] *********************************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:13
+skipping: [localhost] => (item=openshift_auth.yml)  => {
+    "ansible_loop_var": "tasks",
+    "changed": false,
+    "skip_reason": "Conditional result was False",
+    "tasks": "openshift_auth.yml"
+}
+skipping: [localhost] => (item=openshift.yml)  => {
+    "ansible_loop_var": "tasks",
+    "changed": false,
+    "skip_reason": "Conditional result was False",
+    "tasks": "openshift.yml"
+}
+
+TASK [kubernetes : include_tasks] *********************************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:21
+skipping: [localhost] => (item=kubernetes_auth.yml)  => {
+    "ansible_loop_var": "tasks",
+    "changed": false,
+    "skip_reason": "Conditional result was False",
+    "tasks": "kubernetes_auth.yml"
+}
+skipping: [localhost] => (item=kubernetes.yml)  => {
+    "ansible_loop_var": "tasks",
+    "changed": false,
+    "skip_reason": "Conditional result was False",
+    "tasks": "kubernetes.yml"
+}
+
+TASK [kubernetes : Use kubectl or oc] *****************************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:29
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [kubernetes : set_fact] **************************************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:33
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [kubernetes : Record deployment size] ************************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:36
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [kubernetes : Set expected post-deployment Replicas value] ***************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:44
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [kubernetes : Delete existing Deployment (or StatefulSet)] ***************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:49
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [kubernetes : Get Postgres Service Detail] *******************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:56
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [kubernetes : Template PostgreSQL Deployment (OpenShift)] ****************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:64
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [kubernetes : Deploy and Activate Postgres (OpenShift)] ******************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:70
+skipping: [localhost] => {
+    "censored": "the output has been hidden due to the fact that 'no_log: true' was specified for this result",
+    "changed": false
+}
+
+TASK [kubernetes : Create Temporary Values File (Kubernetes)] *****************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:90
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [kubernetes : Populate Temporary Values File (Kubernetes)] ***************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:96
+skipping: [localhost] => {
+    "censored": "the output has been hidden due to the fact that 'no_log: true' was specified for this result",
+    "changed": false
+}
+
+TASK [kubernetes : Deploy and Activate Postgres (Kubernetes)] *****************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:102
+skipping: [localhost] => {
+    "censored": "the output has been hidden due to the fact that 'no_log: true' was specified for this result",
+    "changed": false
+}
+
+TASK [kubernetes : Remove tempfile] *******************************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:115
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [kubernetes : Set postgresql hostname to helm package service (Kubernetes)] **********************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:124
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [kubernetes : Wait for Postgres to activate] *****************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:131
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [kubernetes : Check if Postgres 10 is being used] ************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:138
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [kubernetes : Set new pg image] ******************************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:146
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [kubernetes : Wait for change to take affect] ****************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:151
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [kubernetes : Set env var for pg upgrade] ********************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:155
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [kubernetes : Wait for change to take affect] ****************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:159
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [kubernetes : Set env var for new pg version] ****************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:163
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [kubernetes : Wait for Postgres to redeploy] *****************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:167
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [kubernetes : Wait for Postgres to finish upgrading] *********************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:171
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [kubernetes : Unset upgrade env var] *************************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:181
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [kubernetes : Wait for Postgres to redeploy] *****************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:185
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [kubernetes : Set awx image name] ****************************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:196
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [kubernetes : Determine Deployment api version] **************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:202
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [kubernetes : Get Root CA file contents] *********************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:208
+skipping: [localhost] => {
+    "censored": "the output has been hidden due to the fact that 'no_log: true' was specified for this result",
+    "changed": false
+}
+
+TASK [kubernetes : Render Root CA template] ***********************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:213
+skipping: [localhost] => {
+    "censored": "the output has been hidden due to the fact that 'no_log: true' was specified for this result",
+    "changed": false
+}
+
+TASK [kubernetes : Apply Root CA template] ************************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:218
+skipping: [localhost] => {
+    "censored": "the output has been hidden due to the fact that 'no_log: true' was specified for this result",
+    "changed": false
+}
+
+TASK [kubernetes : Set Root CA file name] *************************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:223
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [kubernetes : Set Root CA file location] *********************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:227
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [kubernetes : Render deployment templates] *******************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:234
+skipping: [localhost] => (item=None)  => {
+    "censored": "the output has been hidden due to the fact that 'no_log: true' was specified for this result",
+    "changed": false
+}
+skipping: [localhost] => (item=None)  => {
+    "censored": "the output has been hidden due to the fact that 'no_log: true' was specified for this result",
+    "changed": false
+}
+skipping: [localhost] => (item=None)  => {
+    "censored": "the output has been hidden due to the fact that 'no_log: true' was specified for this result",
+    "changed": false
+}
+skipping: [localhost] => (item=None)  => {
+    "censored": "the output has been hidden due to the fact that 'no_log: true' was specified for this result",
+    "changed": false
+}
+skipping: [localhost] => {
+    "censored": "the output has been hidden due to the fact that 'no_log: true' was specified for this result",
+    "changed": false
+}
+
+TASK [kubernetes : Apply Deployment] ******************************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:244
+skipping: [localhost] => {
+    "censored": "the output has been hidden due to the fact that 'no_log: true' was specified for this result",
+    "changed": false
+}
+
+TASK [kubernetes : Delete any existing management pod] ************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:254
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [kubernetes : Template management pod] ***********************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:259
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [kubernetes : Create management pod] *************************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:263
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [kubernetes : Wait for management pod to start] **************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:267
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [kubernetes : Migrate database] ******************************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:276
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [kubernetes : Check for Tower Super users] *******************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:281
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [kubernetes : create django super user if it does not exist] *************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:289
+skipping: [localhost] => {
+    "censored": "the output has been hidden due to the fact that 'no_log: true' was specified for this result",
+    "changed": false
+}
+
+TASK [kubernetes : update django super user password] *************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:296
+skipping: [localhost] => {
+    "censored": "the output has been hidden due to the fact that 'no_log: true' was specified for this result",
+    "changed": false
+}
+
+TASK [kubernetes : Create the default organization if it is needed.] **********************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:304
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [kubernetes : Delete management pod] *************************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:312
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [kubernetes : Scale up deployment] ***************************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/kubernetes/tasks/main.yml:317
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [local_docker : Generate broadcast websocket secret] *********************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/local_docker/tasks/main.yml:2
+ok: [localhost] => {
+    "censored": "the output has been hidden due to the fact that 'no_log: true' was specified for this result",
+    "changed": false
+}
+
+TASK [local_docker : Create ~/.awx/pgdocker directory] ************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/local_docker/tasks/upgrade_postgres.yml:3
+<localhost> ESTABLISH LOCAL CONNECTION FOR USER: root
+<localhost> EXEC /bin/sh -c 'echo ~root && sleep 0'
+<localhost> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /root/.ansible/tmp `"&& mkdir "` echo /root/.ansible/tmp/ansible-tmp-1693350981.5376463-97443-165621195590230 `" && echo ansible-tmp-1693350981.5376463-97443-165621195590230="` echo /root/.ansible/tmp/ansible-tmp-1693350981.5376463-97443-165621195590230 `" ) && sleep 0'
+Using module file /usr/lib/python3/dist-packages/ansible/modules/file.py
+<localhost> PUT /root/.ansible/tmp/ansible-local-97226ye1hkj6q/tmp067bwnrp TO /root/.ansible/tmp/ansible-tmp-1693350981.5376463-97443-165621195590230/AnsiballZ_file.py
+<localhost> EXEC /bin/sh -c 'chmod u+x /root/.ansible/tmp/ansible-tmp-1693350981.5376463-97443-165621195590230/ /root/.ansible/tmp/ansible-tmp-1693350981.5376463-97443-165621195590230/AnsiballZ_file.py && sleep 0'
+<localhost> EXEC /bin/sh -c '/usr/bin/env python3 /root/.ansible/tmp/ansible-tmp-1693350981.5376463-97443-165621195590230/AnsiballZ_file.py && sleep 0'
+<localhost> EXEC /bin/sh -c 'rm -f -r /root/.ansible/tmp/ansible-tmp-1693350981.5376463-97443-165621195590230/ > /dev/null 2>&1 && sleep 0'
+ok: [localhost] => {
+    "changed": false,
+    "diff": {
+        "after": {
+            "path": "/root/.awx/pgdocker"
+        },
+        "before": {
+            "path": "/root/.awx/pgdocker"
+        }
+    },
+    "gid": 0,
+    "group": "root",
+    "invocation": {
+        "module_args": {
+            "_diff_peek": null,
+            "_original_basename": null,
+            "access_time": null,
+            "access_time_format": "%Y%m%d%H%M.%S",
+            "attributes": null,
+            "follow": true,
+            "force": false,
+            "group": null,
+            "mode": null,
+            "modification_time": null,
+            "modification_time_format": "%Y%m%d%H%M.%S",
+            "owner": null,
+            "path": "/root/.awx/pgdocker",
+            "recurse": false,
+            "selevel": null,
+            "serole": null,
+            "setype": null,
+            "seuser": null,
+            "src": null,
+            "state": "directory",
+            "unsafe_writes": false
+        }
+    },
+    "mode": "0755",
+    "owner": "root",
+    "path": "/root/.awx/pgdocker",
+    "size": 4096,
+    "state": "directory",
+    "uid": 0
+}
+
+TASK [local_docker : Get full path of postgres data dir] **********************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/local_docker/tasks/upgrade_postgres.yml:8
+<localhost> ESTABLISH LOCAL CONNECTION FOR USER: root
+<localhost> EXEC /bin/sh -c 'echo ~root && sleep 0'
+<localhost> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /root/.ansible/tmp `"&& mkdir "` echo /root/.ansible/tmp/ansible-tmp-1693350982.3142948-97469-56530165186575 `" && echo ansible-tmp-1693350982.3142948-97469-56530165186575="` echo /root/.ansible/tmp/ansible-tmp-1693350982.3142948-97469-56530165186575 `" ) && sleep 0'
+Using module file /usr/lib/python3/dist-packages/ansible/modules/command.py
+<localhost> PUT /root/.ansible/tmp/ansible-local-97226ye1hkj6q/tmpmr4gj9iy TO /root/.ansible/tmp/ansible-tmp-1693350982.3142948-97469-56530165186575/AnsiballZ_command.py
+<localhost> EXEC /bin/sh -c 'chmod u+x /root/.ansible/tmp/ansible-tmp-1693350982.3142948-97469-56530165186575/ /root/.ansible/tmp/ansible-tmp-1693350982.3142948-97469-56530165186575/AnsiballZ_command.py && sleep 0'
+<localhost> EXEC /bin/sh -c '/usr/bin/env python3 /root/.ansible/tmp/ansible-tmp-1693350982.3142948-97469-56530165186575/AnsiballZ_command.py && sleep 0'
+<localhost> EXEC /bin/sh -c 'rm -f -r /root/.ansible/tmp/ansible-tmp-1693350982.3142948-97469-56530165186575/ > /dev/null 2>&1 && sleep 0'
+changed: [localhost] => {
+    "changed": true,
+    "cmd": "echo ~/.awx/pgdocker",
+    "delta": "0:00:00.011588",
+    "end": "2023-08-30 06:16:22.954206",
+    "invocation": {
+        "module_args": {
+            "_raw_params": "echo ~/.awx/pgdocker",
+            "_uses_shell": true,
+            "argv": null,
+            "chdir": null,
+            "creates": null,
+            "executable": null,
+            "removes": null,
+            "stdin": null,
+            "stdin_add_newline": true,
+            "strip_empty_ends": true,
+            "warn": true
+        }
+    },
+    "rc": 0,
+    "start": "2023-08-30 06:16:22.942618",
+    "stderr": "",
+    "stderr_lines": [],
+    "stdout": "/root/.awx/pgdocker",
+    "stdout_lines": [
+        "/root/.awx/pgdocker"
+    ]
+}
+
+TASK [local_docker : Register temporary docker container] *********************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/local_docker/tasks/upgrade_postgres.yml:12
+ok: [localhost] => {
+    "ansible_facts": {
+        "container_command": "docker run --rm -v '/root/.awx/pgdocker:/var/lib/postgresql' centos:8 bash -c "
+    },
+    "changed": false
+}
+
+TASK [local_docker : Check for existing Postgres data (run from inside the container for access to file)] *********************************************************************************************************task path: /root/awx-17.1.0/installer/roles/local_docker/tasks/upgrade_postgres.yml:16
+<localhost> ESTABLISH LOCAL CONNECTION FOR USER: root
+<localhost> EXEC /bin/sh -c 'echo ~root && sleep 0'
+<localhost> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /root/.ansible/tmp `"&& mkdir "` echo /root/.ansible/tmp/ansible-tmp-1693350983.2294214-97498-167176524572206 `" && echo ansible-tmp-1693350983.2294214-97498-167176524572206="` echo /root/.ansible/tmp/ansible-tmp-1693350983.2294214-97498-167176524572206 `" ) && sleep 0'
+Using module file /usr/lib/python3/dist-packages/ansible/modules/command.py
+<localhost> PUT /root/.ansible/tmp/ansible-local-97226ye1hkj6q/tmpopiuvsly TO /root/.ansible/tmp/ansible-tmp-1693350983.2294214-97498-167176524572206/AnsiballZ_command.py
+<localhost> EXEC /bin/sh -c 'chmod u+x /root/.ansible/tmp/ansible-tmp-1693350983.2294214-97498-167176524572206/ /root/.ansible/tmp/ansible-tmp-1693350983.2294214-97498-167176524572206/AnsiballZ_command.py && sleep 0'
+<localhost> EXEC /bin/sh -c '/usr/bin/env python3 /root/.ansible/tmp/ansible-tmp-1693350983.2294214-97498-167176524572206/AnsiballZ_command.py && sleep 0'
+<localhost> EXEC /bin/sh -c 'rm -f -r /root/.ansible/tmp/ansible-tmp-1693350983.2294214-97498-167176524572206/ > /dev/null 2>&1 && sleep 0'
+fatal: [localhost]: FAILED! => {
+    "changed": true,
+    "cmd": "docker run --rm -v '/root/.awx/pgdocker:/var/lib/postgresql' centos:8 bash -c  \"[[ -f /var/lib/postgresql/10/data/PG_VERSION ]] && echo 'exists'\"\n",
+    "delta": "0:00:52.469567",
+    "end": "2023-08-30 06:17:16.050360",
+    "invocation": {
+        "module_args": {
+            "_raw_params": "docker run --rm -v '/root/.awx/pgdocker:/var/lib/postgresql' centos:8 bash -c  \"[[ -f /var/lib/postgresql/10/data/PG_VERSION ]] && echo 'exists'\"\n",
+            "_uses_shell": true,
+            "argv": null,
+            "chdir": null,
+            "creates": null,
+            "executable": null,
+            "removes": null,
+            "stdin": null,
+            "stdin_add_newline": true,
+            "strip_empty_ends": true,
+            "warn": true
+        }
+    },
+    "msg": "non-zero return code",
+    "rc": 1,
+    "start": "2023-08-30 06:16:23.580793",
+    "stderr": "Unable to find image 'centos:8' locally\n8: Pulling from library/centos\na1d0c7532777: Pulling fs layer\na1d0c7532777: Download complete\na1d0c7532777: Pull complete\nDigest: sha256:a27fd8080b517143cbbbab9dfb7c8571c40d67d534bbdee55bd6c473f432b177\nStatus: Downloaded newer image for centos:8",
+    "stderr_lines": [
+        "Unable to find image 'centos:8' locally",
+        "8: Pulling from library/centos",
+        "a1d0c7532777: Pulling fs layer",
+        "a1d0c7532777: Download complete",
+        "a1d0c7532777: Pull complete",
+        "Digest: sha256:a27fd8080b517143cbbbab9dfb7c8571c40d67d534bbdee55bd6c473f432b177",
+        "Status: Downloaded newer image for centos:8"
+    ],
+    "stdout": "",
+    "stdout_lines": []
+}
+...ignoring
+
+TASK [local_docker : Record Postgres version] *********************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/local_docker/tasks/upgrade_postgres.yml:23
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [local_docker : Determine whether to upgrade postgres] *******************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/local_docker/tasks/upgrade_postgres.yml:29
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [local_docker : Set up new postgres paths pre-upgrade] *******************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/local_docker/tasks/upgrade_postgres.yml:34
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [local_docker : Stop AWX before upgrading postgres] **********************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/local_docker/tasks/upgrade_postgres.yml:39
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [local_docker : Upgrade Postgres] ****************************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/local_docker/tasks/upgrade_postgres.yml:45
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [local_docker : Copy old pg_hba.conf] ************************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/local_docker/tasks/upgrade_postgres.yml:54
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [local_docker : Remove old data directory] *******************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/local_docker/tasks/upgrade_postgres.yml:59
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [local_docker : Export Docker awx image if it isnt local and there isnt a registry defined] ******************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/local_docker/tasks/set_image.yml:4
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [local_docker : Set docker base path] ************************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/local_docker/tasks/set_image.yml:12
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [local_docker : Ensure directory exists] *********************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/local_docker/tasks/set_image.yml:17
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [local_docker : Copy awx image to docker execution] **********************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/local_docker/tasks/set_image.yml:23
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [local_docker : Load awx image] ******************************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/local_docker/tasks/set_image.yml:29
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [local_docker : Set full image path for local install] *******************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/local_docker/tasks/set_image.yml:37
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [local_docker : Set DockerHub Image Paths] *******************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/local_docker/tasks/set_image.yml:43
+File lookup using /root/awx-17.1.0/VERSION as file
+ok: [localhost] => {
+    "ansible_facts": {
+        "awx_docker_actual_image": "ansible/awx:17.1.0"
+    },
+    "changed": false
+}
+
+TASK [local_docker : Create ~/.awx/awxcompose directory] **********************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/local_docker/tasks/compose.yml:2
+<localhost> ESTABLISH LOCAL CONNECTION FOR USER: root
+<localhost> EXEC /bin/sh -c 'echo ~root && sleep 0'
+<localhost> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /root/.ansible/tmp `"&& mkdir "` echo /root/.ansible/tmp/ansible-tmp-1693351037.6645904-97701-3876700257537 `" && echo ansible-tmp-1693351037.6645904-97701-3876700257537="` echo /root/.ansible/tmp/ansible-tmp-1693351037.6645904-97701-3876700257537 `" ) && sleep 0'
+Using module file /usr/lib/python3/dist-packages/ansible/modules/file.py
+<localhost> PUT /root/.ansible/tmp/ansible-local-97226ye1hkj6q/tmplnek5dii TO /root/.ansible/tmp/ansible-tmp-1693351037.6645904-97701-3876700257537/AnsiballZ_file.py
+<localhost> EXEC /bin/sh -c 'chmod u+x /root/.ansible/tmp/ansible-tmp-1693351037.6645904-97701-3876700257537/ /root/.ansible/tmp/ansible-tmp-1693351037.6645904-97701-3876700257537/AnsiballZ_file.py && sleep 0'
+<localhost> EXEC /bin/sh -c '/usr/bin/env python3 /root/.ansible/tmp/ansible-tmp-1693351037.6645904-97701-3876700257537/AnsiballZ_file.py && sleep 0'
+<localhost> EXEC /bin/sh -c 'rm -f -r /root/.ansible/tmp/ansible-tmp-1693351037.6645904-97701-3876700257537/ > /dev/null 2>&1 && sleep 0'
+ok: [localhost] => {
+    "changed": false,
+    "diff": {
+        "after": {
+            "path": "/root/.awx/awxcompose"
+        },
+        "before": {
+            "path": "/root/.awx/awxcompose"
+        }
+    },
+    "gid": 0,
+    "group": "root",
+    "invocation": {
+        "module_args": {
+            "_diff_peek": null,
+            "_original_basename": null,
+            "access_time": null,
+            "access_time_format": "%Y%m%d%H%M.%S",
+            "attributes": null,
+            "follow": true,
+            "force": false,
+            "group": null,
+            "mode": null,
+            "modification_time": null,
+            "modification_time_format": "%Y%m%d%H%M.%S",
+            "owner": null,
+            "path": "/root/.awx/awxcompose",
+            "recurse": false,
+            "selevel": null,
+            "serole": null,
+            "setype": null,
+            "seuser": null,
+            "src": null,
+            "state": "directory",
+            "unsafe_writes": false
+        }
+    },
+    "mode": "0755",
+    "owner": "root",
+    "path": "/root/.awx/awxcompose",
+    "size": 4096,
+    "state": "directory",
+    "uid": 0
+}
+
+TASK [local_docker : Create Redis socket directory] ***************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/local_docker/tasks/compose.yml:7
+<localhost> ESTABLISH LOCAL CONNECTION FOR USER: root
+<localhost> EXEC /bin/sh -c 'echo ~root && sleep 0'
+<localhost> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /root/.ansible/tmp `"&& mkdir "` echo /root/.ansible/tmp/ansible-tmp-1693351038.2154362-97727-261500520762368 `" && echo ansible-tmp-1693351038.2154362-97727-261500520762368="` echo /root/.ansible/tmp/ansible-tmp-1693351038.2154362-97727-261500520762368 `" ) && sleep 0'
+Using module file /usr/lib/python3/dist-packages/ansible/modules/file.py
+<localhost> PUT /root/.ansible/tmp/ansible-local-97226ye1hkj6q/tmpv5i9035a TO /root/.ansible/tmp/ansible-tmp-1693351038.2154362-97727-261500520762368/AnsiballZ_file.py
+<localhost> EXEC /bin/sh -c 'chmod u+x /root/.ansible/tmp/ansible-tmp-1693351038.2154362-97727-261500520762368/ /root/.ansible/tmp/ansible-tmp-1693351038.2154362-97727-261500520762368/AnsiballZ_file.py && sleep 0'
+<localhost> EXEC /bin/sh -c '/usr/bin/env python3 /root/.ansible/tmp/ansible-tmp-1693351038.2154362-97727-261500520762368/AnsiballZ_file.py && sleep 0'
+<localhost> EXEC /bin/sh -c 'rm -f -r /root/.ansible/tmp/ansible-tmp-1693351038.2154362-97727-261500520762368/ > /dev/null 2>&1 && sleep 0'
+ok: [localhost] => {
+    "changed": false,
+    "diff": {
+        "after": {
+            "path": "/root/.awx/awxcompose/redis_socket"
+        },
+        "before": {
+            "path": "/root/.awx/awxcompose/redis_socket"
+        }
+    },
+    "gid": 0,
+    "group": "root",
+    "invocation": {
+        "module_args": {
+            "_diff_peek": null,
+            "_original_basename": null,
+            "access_time": null,
+            "access_time_format": "%Y%m%d%H%M.%S",
+            "attributes": null,
+            "follow": true,
+            "force": false,
+            "group": null,
+            "mode": 511,
+            "modification_time": null,
+            "modification_time_format": "%Y%m%d%H%M.%S",
+            "owner": null,
+            "path": "/root/.awx/awxcompose/redis_socket",
+            "recurse": false,
+            "selevel": null,
+            "serole": null,
+            "setype": null,
+            "seuser": null,
+            "src": null,
+            "state": "directory",
+            "unsafe_writes": false
+        }
+    },
+    "mode": "0777",
+    "owner": "root",
+    "path": "/root/.awx/awxcompose/redis_socket",
+    "size": 4096,
+    "state": "directory",
+    "uid": 0
+}
+
+TASK [local_docker : Create Docker Compose Configuration] *********************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/local_docker/tasks/compose.yml:13
+<localhost> ESTABLISH LOCAL CONNECTION FOR USER: root
+<localhost> EXEC /bin/sh -c 'echo ~root && sleep 0'
+<localhost> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /root/.ansible/tmp `"&& mkdir "` echo /root/.ansible/tmp/ansible-tmp-1693351038.7340572-97753-67822444802005 `" && echo ansible-tmp-1693351038.7340572-97753-67822444802005="` echo /root/.ansible/tmp/ansible-tmp-1693351038.7340572-97753-67822444802005 `" ) && sleep 0'
+<localhost> EXEC /bin/sh -c 'echo ~root && sleep 0'
+Using module file /usr/lib/python3/dist-packages/ansible/modules/stat.py
+<localhost> PUT /root/.ansible/tmp/ansible-local-97226ye1hkj6q/tmp6zs1aihc TO /root/.ansible/tmp/ansible-tmp-1693351038.7340572-97753-67822444802005/AnsiballZ_stat.py
+<localhost> EXEC /bin/sh -c 'chmod u+x /root/.ansible/tmp/ansible-tmp-1693351038.7340572-97753-67822444802005/ /root/.ansible/tmp/ansible-tmp-1693351038.7340572-97753-67822444802005/AnsiballZ_stat.py && sleep 0'<localhost> EXEC /bin/sh -c '/usr/bin/env python3 /root/.ansible/tmp/ansible-tmp-1693351038.7340572-97753-67822444802005/AnsiballZ_stat.py && sleep 0'
+Using module file /usr/lib/python3/dist-packages/ansible/modules/file.py
+<localhost> PUT /root/.ansible/tmp/ansible-local-97226ye1hkj6q/tmpgvowotvl TO /root/.ansible/tmp/ansible-tmp-1693351038.7340572-97753-67822444802005/AnsiballZ_file.py
+<localhost> EXEC /bin/sh -c 'chmod u+x /root/.ansible/tmp/ansible-tmp-1693351038.7340572-97753-67822444802005/ /root/.ansible/tmp/ansible-tmp-1693351038.7340572-97753-67822444802005/AnsiballZ_file.py && sleep 0'<localhost> EXEC /bin/sh -c '/usr/bin/env python3 /root/.ansible/tmp/ansible-tmp-1693351038.7340572-97753-67822444802005/AnsiballZ_file.py && sleep 0'
+<localhost> EXEC /bin/sh -c 'rm -f -r /root/.ansible/tmp/ansible-tmp-1693351038.7340572-97753-67822444802005/ > /dev/null 2>&1 && sleep 0'
+ok: [localhost] => (item={'file': 'environment.sh', 'mode': '0600'}) => {
+    "ansible_loop_var": "item",
+    "changed": false,
+    "checksum": "18957af76126a0769a3d66e4e5a62ff17144eed2",
+    "dest": "/root/.awx/awxcompose/environment.sh",
+    "diff": {
+        "after": {
+            "path": "/root/.awx/awxcompose/environment.sh"
+        },
+        "before": {
+            "path": "/root/.awx/awxcompose/environment.sh"
+        }
+    },
+    "gid": 0,
+    "group": "root",
+    "invocation": {
+        "module_args": {
+            "_diff_peek": null,
+            "_original_basename": "environment.sh.j2",
+            "access_time": null,
+            "access_time_format": "%Y%m%d%H%M.%S",
+            "attributes": null,
+            "dest": "/root/.awx/awxcompose/environment.sh",
+            "follow": true,
+            "force": false,
+            "group": null,
+            "mode": "0600",
+            "modification_time": null,
+            "modification_time_format": "%Y%m%d%H%M.%S",
+            "owner": null,
+            "path": "/root/.awx/awxcompose/environment.sh",
+            "recurse": false,
+            "selevel": null,
+            "serole": null,
+            "setype": null,
+            "seuser": null,
+            "src": null,
+            "state": "file",
+            "unsafe_writes": false
+        }
+    },
+    "item": {
+        "file": "environment.sh",
+        "mode": "0600"
+    },
+    "mode": "0600",
+    "owner": "root",
+    "path": "/root/.awx/awxcompose/environment.sh",
+    "size": 153,
+    "state": "file",
+    "uid": 0
+}
+<localhost> EXEC /bin/sh -c 'echo ~root && sleep 0'
+<localhost> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /root/.ansible/tmp `"&& mkdir "` echo /root/.ansible/tmp/ansible-tmp-1693351040.153665-97753-114186980320875 `" && echo ansible-tmp-1693351040.153665-97753-114186980320875="` echo /root/.ansible/tmp/ansible-tmp-1693351040.153665-97753-114186980320875 `" ) && sleep 0'
+<localhost> EXEC /bin/sh -c 'echo ~root && sleep 0'
+Using module file /usr/lib/python3/dist-packages/ansible/modules/stat.py
+<localhost> PUT /root/.ansible/tmp/ansible-local-97226ye1hkj6q/tmpcw8do_1m TO /root/.ansible/tmp/ansible-tmp-1693351040.153665-97753-114186980320875/AnsiballZ_stat.py
+<localhost> EXEC /bin/sh -c 'chmod u+x /root/.ansible/tmp/ansible-tmp-1693351040.153665-97753-114186980320875/ /root/.ansible/tmp/ansible-tmp-1693351040.153665-97753-114186980320875/AnsiballZ_stat.py && sleep 0'<localhost> EXEC /bin/sh -c '/usr/bin/env python3 /root/.ansible/tmp/ansible-tmp-1693351040.153665-97753-114186980320875/AnsiballZ_stat.py && sleep 0'
+<localhost> PUT /root/.ansible/tmp/ansible-local-97226ye1hkj6q/tmp92pxc2bj/credentials.py.j2 TO /root/.ansible/tmp/ansible-tmp-1693351040.153665-97753-114186980320875/source
+<localhost> EXEC /bin/sh -c 'chmod u+x /root/.ansible/tmp/ansible-tmp-1693351040.153665-97753-114186980320875/ /root/.ansible/tmp/ansible-tmp-1693351040.153665-97753-114186980320875/source && sleep 0'
+Using module file /usr/lib/python3/dist-packages/ansible/modules/copy.py
+<localhost> PUT /root/.ansible/tmp/ansible-local-97226ye1hkj6q/tmp5dr6iwza TO /root/.ansible/tmp/ansible-tmp-1693351040.153665-97753-114186980320875/AnsiballZ_copy.py
+<localhost> EXEC /bin/sh -c 'chmod u+x /root/.ansible/tmp/ansible-tmp-1693351040.153665-97753-114186980320875/ /root/.ansible/tmp/ansible-tmp-1693351040.153665-97753-114186980320875/AnsiballZ_copy.py && sleep 0'<localhost> EXEC /bin/sh -c '/usr/bin/env python3 /root/.ansible/tmp/ansible-tmp-1693351040.153665-97753-114186980320875/AnsiballZ_copy.py && sleep 0'
+<localhost> EXEC /bin/sh -c 'rm -f -r /root/.ansible/tmp/ansible-tmp-1693351040.153665-97753-114186980320875/ > /dev/null 2>&1 && sleep 0'
+changed: [localhost] => (item={'file': 'credentials.py', 'mode': '0600'}) => {
+    "ansible_loop_var": "item",
+    "changed": true,
+    "checksum": "e1f455a107da77c228682ff39c2591cc03416eb7",
+    "dest": "/root/.awx/awxcompose/credentials.py",
+    "diff": [],
+    "gid": 0,
+    "group": "root",
+    "invocation": {
+        "module_args": {
+            "_original_basename": "credentials.py.j2",
+            "attributes": null,
+            "backup": false,
+            "checksum": "e1f455a107da77c228682ff39c2591cc03416eb7",
+            "content": null,
+            "dest": "/root/.awx/awxcompose/credentials.py",
+            "directory_mode": null,
+            "follow": false,
+            "force": true,
+            "group": null,
+            "local_follow": null,
+            "mode": "0600",
+            "owner": null,
+            "remote_src": null,
+            "selevel": null,
+            "serole": null,
+            "setype": null,
+            "seuser": null,
+            "src": "/root/.ansible/tmp/ansible-tmp-1693351040.153665-97753-114186980320875/source",
+            "unsafe_writes": false,
+            "validate": null
+        }
+    },
+    "item": {
+        "file": "credentials.py",
+        "mode": "0600"
+    },
+    "md5sum": "d633bf89102bce0f6412a3c26c658ba4",
+    "mode": "0600",
+    "owner": "root",
+    "size": 457,
+    "src": "/root/.ansible/tmp/ansible-tmp-1693351040.153665-97753-114186980320875/source",
+    "state": "file",
+    "uid": 0
+}
+<localhost> EXEC /bin/sh -c 'echo ~root && sleep 0'
+<localhost> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /root/.ansible/tmp `"&& mkdir "` echo /root/.ansible/tmp/ansible-tmp-1693351041.289711-97753-55087462349029 `" && echo ansible-tmp-1693351041.289711-97753-55087462349029="` echo /root/.ansible/tmp/ansible-tmp-1693351041.289711-97753-55087462349029 `" ) && sleep 0'
+<localhost> EXEC /bin/sh -c 'echo ~root && sleep 0'
+Using module file /usr/lib/python3/dist-packages/ansible/modules/stat.py
+<localhost> PUT /root/.ansible/tmp/ansible-local-97226ye1hkj6q/tmp0h8nz1bg TO /root/.ansible/tmp/ansible-tmp-1693351041.289711-97753-55087462349029/AnsiballZ_stat.py
+<localhost> EXEC /bin/sh -c 'chmod u+x /root/.ansible/tmp/ansible-tmp-1693351041.289711-97753-55087462349029/ /root/.ansible/tmp/ansible-tmp-1693351041.289711-97753-55087462349029/AnsiballZ_stat.py && sleep 0'
+<localhost> EXEC /bin/sh -c '/usr/bin/env python3 /root/.ansible/tmp/ansible-tmp-1693351041.289711-97753-55087462349029/AnsiballZ_stat.py && sleep 0'
+Using module file /usr/lib/python3/dist-packages/ansible/modules/file.py
+<localhost> PUT /root/.ansible/tmp/ansible-local-97226ye1hkj6q/tmp3dcnyukq TO /root/.ansible/tmp/ansible-tmp-1693351041.289711-97753-55087462349029/AnsiballZ_file.py
+<localhost> EXEC /bin/sh -c 'chmod u+x /root/.ansible/tmp/ansible-tmp-1693351041.289711-97753-55087462349029/ /root/.ansible/tmp/ansible-tmp-1693351041.289711-97753-55087462349029/AnsiballZ_file.py && sleep 0'
+<localhost> EXEC /bin/sh -c '/usr/bin/env python3 /root/.ansible/tmp/ansible-tmp-1693351041.289711-97753-55087462349029/AnsiballZ_file.py && sleep 0'
+<localhost> EXEC /bin/sh -c 'rm -f -r /root/.ansible/tmp/ansible-tmp-1693351041.289711-97753-55087462349029/ > /dev/null 2>&1 && sleep 0'
+ok: [localhost] => (item={'file': 'docker-compose.yml', 'mode': '0600'}) => {
+    "ansible_loop_var": "item",
+    "changed": false,
+    "checksum": "fd4c2412e218a9c35de7bd5ccbd14e1836be3841",
+    "dest": "/root/.awx/awxcompose/docker-compose.yml",
+    "diff": {
+        "after": {
+            "path": "/root/.awx/awxcompose/docker-compose.yml"
+        },
+        "before": {
+            "path": "/root/.awx/awxcompose/docker-compose.yml"
+        }
+    },
+    "gid": 0,
+    "group": "root",
+    "invocation": {
+        "module_args": {
+            "_diff_peek": null,
+            "_original_basename": "docker-compose.yml.j2",
+            "access_time": null,
+            "access_time_format": "%Y%m%d%H%M.%S",
+            "attributes": null,
+            "dest": "/root/.awx/awxcompose/docker-compose.yml",
+            "follow": true,
+            "force": false,
+            "group": null,
+            "mode": "0600",
+            "modification_time": null,
+            "modification_time_format": "%Y%m%d%H%M.%S",
+            "owner": null,
+            "path": "/root/.awx/awxcompose/docker-compose.yml",
+            "recurse": false,
+            "selevel": null,
+            "serole": null,
+            "setype": null,
+            "seuser": null,
+            "src": null,
+            "state": "file",
+            "unsafe_writes": false
+        }
+    },
+    "item": {
+        "file": "docker-compose.yml",
+        "mode": "0600"
+    },
+    "mode": "0600",
+    "owner": "root",
+    "path": "/root/.awx/awxcompose/docker-compose.yml",
+    "size": 2349,
+    "state": "file",
+    "uid": 0
+}
+<localhost> EXEC /bin/sh -c 'echo ~root && sleep 0'
+<localhost> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /root/.ansible/tmp `"&& mkdir "` echo /root/.ansible/tmp/ansible-tmp-1693351042.2509778-97753-21953979859459 `" && echo ansible-tmp-1693351042.2509778-97753-21953979859459="` echo /root/.ansible/tmp/ansible-tmp-1693351042.2509778-97753-21953979859459 `" ) && sleep 0'
+<localhost> EXEC /bin/sh -c 'echo ~root && sleep 0'
+Using module file /usr/lib/python3/dist-packages/ansible/modules/stat.py
+<localhost> PUT /root/.ansible/tmp/ansible-local-97226ye1hkj6q/tmpgi9v_73e TO /root/.ansible/tmp/ansible-tmp-1693351042.2509778-97753-21953979859459/AnsiballZ_stat.py
+<localhost> EXEC /bin/sh -c 'chmod u+x /root/.ansible/tmp/ansible-tmp-1693351042.2509778-97753-21953979859459/ /root/.ansible/tmp/ansible-tmp-1693351042.2509778-97753-21953979859459/AnsiballZ_stat.py && sleep 0'<localhost> EXEC /bin/sh -c '/usr/bin/env python3 /root/.ansible/tmp/ansible-tmp-1693351042.2509778-97753-21953979859459/AnsiballZ_stat.py && sleep 0'
+Using module file /usr/lib/python3/dist-packages/ansible/modules/file.py
+<localhost> PUT /root/.ansible/tmp/ansible-local-97226ye1hkj6q/tmpmvs6gi8y TO /root/.ansible/tmp/ansible-tmp-1693351042.2509778-97753-21953979859459/AnsiballZ_file.py
+<localhost> EXEC /bin/sh -c 'chmod u+x /root/.ansible/tmp/ansible-tmp-1693351042.2509778-97753-21953979859459/ /root/.ansible/tmp/ansible-tmp-1693351042.2509778-97753-21953979859459/AnsiballZ_file.py && sleep 0'<localhost> EXEC /bin/sh -c '/usr/bin/env python3 /root/.ansible/tmp/ansible-tmp-1693351042.2509778-97753-21953979859459/AnsiballZ_file.py && sleep 0'
+<localhost> EXEC /bin/sh -c 'rm -f -r /root/.ansible/tmp/ansible-tmp-1693351042.2509778-97753-21953979859459/ > /dev/null 2>&1 && sleep 0'
+ok: [localhost] => (item={'file': 'nginx.conf', 'mode': '0600'}) => {
+    "ansible_loop_var": "item",
+    "changed": false,
+    "checksum": "7433a2df79a34332d52f4a7b969614d1cec43a9b",
+    "dest": "/root/.awx/awxcompose/nginx.conf",
+    "diff": {
+        "after": {
+            "path": "/root/.awx/awxcompose/nginx.conf"
+        },
+        "before": {
+            "path": "/root/.awx/awxcompose/nginx.conf"
+        }
+    },
+    "gid": 0,
+    "group": "root",
+    "invocation": {
+        "module_args": {
+            "_diff_peek": null,
+            "_original_basename": "nginx.conf.j2",
+            "access_time": null,
+            "access_time_format": "%Y%m%d%H%M.%S",
+            "attributes": null,
+            "dest": "/root/.awx/awxcompose/nginx.conf",
+            "follow": true,
+            "force": false,
+            "group": null,
+            "mode": "0600",
+            "modification_time": null,
+            "modification_time_format": "%Y%m%d%H%M.%S",
+            "owner": null,
+            "path": "/root/.awx/awxcompose/nginx.conf",
+            "recurse": false,
+            "selevel": null,
+            "serole": null,
+            "setype": null,
+            "seuser": null,
+            "src": null,
+            "state": "file",
+            "unsafe_writes": false
+        }
+    },
+    "item": {
+        "file": "nginx.conf",
+        "mode": "0600"
+    },
+    "mode": "0600",
+    "owner": "root",
+    "path": "/root/.awx/awxcompose/nginx.conf",
+    "size": 2961,
+    "state": "file",
+    "uid": 0
+}
+<localhost> EXEC /bin/sh -c 'echo ~root && sleep 0'
+<localhost> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /root/.ansible/tmp `"&& mkdir "` echo /root/.ansible/tmp/ansible-tmp-1693351043.1047125-97753-68685265065671 `" && echo ansible-tmp-1693351043.1047125-97753-68685265065671="` echo /root/.ansible/tmp/ansible-tmp-1693351043.1047125-97753-68685265065671 `" ) && sleep 0'
+<localhost> EXEC /bin/sh -c 'echo ~root && sleep 0'
+Using module file /usr/lib/python3/dist-packages/ansible/modules/stat.py
+<localhost> PUT /root/.ansible/tmp/ansible-local-97226ye1hkj6q/tmp5e484s0y TO /root/.ansible/tmp/ansible-tmp-1693351043.1047125-97753-68685265065671/AnsiballZ_stat.py
+<localhost> EXEC /bin/sh -c 'chmod u+x /root/.ansible/tmp/ansible-tmp-1693351043.1047125-97753-68685265065671/ /root/.ansible/tmp/ansible-tmp-1693351043.1047125-97753-68685265065671/AnsiballZ_stat.py && sleep 0'<localhost> EXEC /bin/sh -c '/usr/bin/env python3 /root/.ansible/tmp/ansible-tmp-1693351043.1047125-97753-68685265065671/AnsiballZ_stat.py && sleep 0'
+Using module file /usr/lib/python3/dist-packages/ansible/modules/file.py
+<localhost> PUT /root/.ansible/tmp/ansible-local-97226ye1hkj6q/tmpmyxkeq2n TO /root/.ansible/tmp/ansible-tmp-1693351043.1047125-97753-68685265065671/AnsiballZ_file.py
+<localhost> EXEC /bin/sh -c 'chmod u+x /root/.ansible/tmp/ansible-tmp-1693351043.1047125-97753-68685265065671/ /root/.ansible/tmp/ansible-tmp-1693351043.1047125-97753-68685265065671/AnsiballZ_file.py && sleep 0'<localhost> EXEC /bin/sh -c '/usr/bin/env python3 /root/.ansible/tmp/ansible-tmp-1693351043.1047125-97753-68685265065671/AnsiballZ_file.py && sleep 0'
+<localhost> EXEC /bin/sh -c 'rm -f -r /root/.ansible/tmp/ansible-tmp-1693351043.1047125-97753-68685265065671/ > /dev/null 2>&1 && sleep 0'
+ok: [localhost] => (item={'file': 'redis.conf', 'mode': '0664'}) => {
+    "ansible_loop_var": "item",
+    "changed": false,
+    "checksum": "4fe3f9421d102ffe15827f7a685fc9c8d5a20b78",
+    "dest": "/root/.awx/awxcompose/redis.conf",
+    "diff": {
+        "after": {
+            "path": "/root/.awx/awxcompose/redis.conf"
+        },
+        "before": {
+            "path": "/root/.awx/awxcompose/redis.conf"
+        }
+    },
+    "gid": 0,
+    "group": "root",
+    "invocation": {
+        "module_args": {
+            "_diff_peek": null,
+            "_original_basename": "redis.conf.j2",
+            "access_time": null,
+            "access_time_format": "%Y%m%d%H%M.%S",
+            "attributes": null,
+            "dest": "/root/.awx/awxcompose/redis.conf",
+            "follow": true,
+            "force": false,
+            "group": null,
+            "mode": "0664",
+            "modification_time": null,
+            "modification_time_format": "%Y%m%d%H%M.%S",
+            "owner": null,
+            "path": "/root/.awx/awxcompose/redis.conf",
+            "recurse": false,
+            "selevel": null,
+            "serole": null,
+            "setype": null,
+            "seuser": null,
+            "src": null,
+            "state": "file",
+            "unsafe_writes": false
+        }
+    },
+    "item": {
+        "file": "redis.conf",
+        "mode": "0664"
+    },
+    "mode": "0664",
+    "owner": "root",
+    "path": "/root/.awx/awxcompose/redis.conf",
+    "size": 78,
+    "state": "file",
+    "uid": 0
+}
+
+TASK [local_docker : Render SECRET_KEY file] **********************************************************************************************************************************************************************task path: /root/awx-17.1.0/installer/roles/local_docker/tasks/compose.yml:31
+<localhost> ESTABLISH LOCAL CONNECTION FOR USER: root
+<localhost> EXEC /bin/sh -c 'echo ~root && sleep 0'
+<localhost> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /root/.ansible/tmp `"&& mkdir "` echo /root/.ansible/tmp/ansible-tmp-1693351044.060492-97944-270647632237313 `" && echo ansible-tmp-1693351044.060492-97944-270647632237313="` echo /root/.ansible/tmp/ansible-tmp-1693351044.060492-97944-270647632237313 `" ) && sleep 0'
+<localhost> EXEC /bin/sh -c 'echo ~root && sleep 0'
+Using module file /usr/lib/python3/dist-packages/ansible/modules/stat.py
+<localhost> PUT /root/.ansible/tmp/ansible-local-97226ye1hkj6q/tmp5zl0x8bg TO /root/.ansible/tmp/ansible-tmp-1693351044.060492-97944-270647632237313/AnsiballZ_stat.py
+<localhost> EXEC /bin/sh -c 'chmod u+x /root/.ansible/tmp/ansible-tmp-1693351044.060492-97944-270647632237313/ /root/.ansible/tmp/ansible-tmp-1693351044.060492-97944-270647632237313/AnsiballZ_stat.py && sleep 0'<localhost> EXEC /bin/sh -c '/usr/bin/env python3 /root/.ansible/tmp/ansible-tmp-1693351044.060492-97944-270647632237313/AnsiballZ_stat.py && sleep 0'
+Using module file /usr/lib/python3/dist-packages/ansible/modules/file.py
+<localhost> PUT /root/.ansible/tmp/ansible-local-97226ye1hkj6q/tmp6kru14v4 TO /root/.ansible/tmp/ansible-tmp-1693351044.060492-97944-270647632237313/AnsiballZ_file.py
+<localhost> EXEC /bin/sh -c 'chmod u+x /root/.ansible/tmp/ansible-tmp-1693351044.060492-97944-270647632237313/ /root/.ansible/tmp/ansible-tmp-1693351044.060492-97944-270647632237313/AnsiballZ_file.py && sleep 0'<localhost> EXEC /bin/sh -c '/usr/bin/env python3 /root/.ansible/tmp/ansible-tmp-1693351044.060492-97944-270647632237313/AnsiballZ_file.py && sleep 0'
+<localhost> EXEC /bin/sh -c 'rm -f -r /root/.ansible/tmp/ansible-tmp-1693351044.060492-97944-270647632237313/ > /dev/null 2>&1 && sleep 0'
+ok: [localhost] => {
+    "changed": false,
+    "checksum": "e440f70e6f16f46c649a28c9c37d46422b4b2da0",
+    "dest": "/root/.awx/awxcompose/SECRET_KEY",
+    "diff": {
+        "after": {
+            "path": "/root/.awx/awxcompose/SECRET_KEY"
+        },
+        "before": {
+            "path": "/root/.awx/awxcompose/SECRET_KEY"
+        }
+    },
+    "gid": 0,
+    "group": "root",
+    "invocation": {
+        "module_args": {
+            "_diff_peek": null,
+            "_original_basename": "tmpo2h7fyhl",
+            "access_time": null,
+            "access_time_format": "%Y%m%d%H%M.%S",
+            "attributes": null,
+            "dest": "/root/.awx/awxcompose/SECRET_KEY",
+            "follow": true,
+            "force": false,
+            "group": null,
+            "mode": 384,
+            "modification_time": null,
+            "modification_time_format": "%Y%m%d%H%M.%S",
+            "owner": null,
+            "path": "/root/.awx/awxcompose/SECRET_KEY",
+            "recurse": false,
+            "selevel": null,
+            "serole": null,
+            "setype": null,
+            "seuser": null,
+            "src": null,
+            "state": "file",
+            "unsafe_writes": false
+        }
+    },
+    "mode": "0600",
+    "owner": "root",
+    "path": "/root/.awx/awxcompose/SECRET_KEY",
+    "size": 29,
+    "state": "file",
+    "uid": 0
+}
+
+TASK [local_docker : Remove AWX containers before migrating postgres so that the old postgres container does not get used] ****************************************************************************************task path: /root/awx-17.1.0/installer/roles/local_docker/tasks/compose.yml:39
+<localhost> ESTABLISH LOCAL CONNECTION FOR USER: root
+<localhost> EXEC /bin/sh -c 'echo ~root && sleep 0'
+<localhost> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /root/.ansible/tmp `"&& mkdir "` echo /root/.ansible/tmp/ansible-tmp-1693351044.9924932-97983-58801809038982 `" && echo ansible-tmp-1693351044.9924932-97983-58801809038982="` echo /root/.ansible/tmp/ansible-tmp-1693351044.9924932-97983-58801809038982 `" ) && sleep 0'
+redirecting (type: modules) ansible.builtin.docker_compose to community.general.docker_compose
+Using module file /usr/lib/python3/dist-packages/ansible_collections/community/general/plugins/modules/docker_compose.py
+<localhost> PUT /root/.ansible/tmp/ansible-local-97226ye1hkj6q/tmpa5h4x_1m TO /root/.ansible/tmp/ansible-tmp-1693351044.9924932-97983-58801809038982/AnsiballZ_docker_compose.py
+<localhost> EXEC /bin/sh -c 'chmod u+x /root/.ansible/tmp/ansible-tmp-1693351044.9924932-97983-58801809038982/ /root/.ansible/tmp/ansible-tmp-1693351044.9924932-97983-58801809038982/AnsiballZ_docker_compose.py && sleep 0'
+<localhost> EXEC /bin/sh -c '/usr/bin/env python3 /root/.ansible/tmp/ansible-tmp-1693351044.9924932-97983-58801809038982/AnsiballZ_docker_compose.py && sleep 0'
+<localhost> EXEC /bin/sh -c 'rm -f -r /root/.ansible/tmp/ansible-tmp-1693351044.9924932-97983-58801809038982/ > /dev/null 2>&1 && sleep 0'
+ok: [localhost] => {
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "api_version": "auto",
+            "build": false,
+            "ca_cert": null,
+            "client_cert": null,
+            "client_key": null,
+            "debug": false,
+            "definition": null,
+            "dependencies": true,
+            "docker_host": "unix://var/run/docker.sock",
+            "files": null,
+            "hostname_check": false,
+            "nocache": false,
+            "project_name": null,
+            "project_src": "/root/.awx/awxcompose",
+            "pull": false,
+            "recreate": "smart",
+            "remove_images": null,
+            "remove_orphans": false,
+            "remove_volumes": false,
+            "restarted": false,
+            "scale": null,
+            "services": null,
+            "ssl_version": null,
+            "state": "absent",
+            "stopped": false,
+            "timeout": 10,
+            "tls": false,
+            "tls_hostname": "localhost",
+            "validate_certs": false
+        }
+    }
+}
+
+TASK [local_docker : Run migrations in task container] ************************************************************************************************************************************************************
+task path: /root/awx-17.1.0/installer/roles/local_docker/tasks/compose.yml:45
+<localhost> ESTABLISH LOCAL CONNECTION FOR USER: root
+<localhost> EXEC /bin/sh -c 'echo ~root && sleep 0'
+<localhost> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /root/.ansible/tmp `"&& mkdir "` echo /root/.ansible/tmp/ansible-tmp-1693351047.695031-98031-75392665144596 `" && echo ansible-tmp-1693351047.695031-98031-75392665144596="` echo /root/.ansible/tmp/ansible-tmp-1693351047.695031-98031-75392665144596 `" ) && sleep 0'
+Using module file /usr/lib/python3/dist-packages/ansible/modules/command.py
+<localhost> PUT /root/.ansible/tmp/ansible-local-97226ye1hkj6q/tmpezfi64a1 TO /root/.ansible/tmp/ansible-tmp-1693351047.695031-98031-75392665144596/AnsiballZ_command.py
+<localhost> EXEC /bin/sh -c 'chmod u+x /root/.ansible/tmp/ansible-tmp-1693351047.695031-98031-75392665144596/ /root/.ansible/tmp/ansible-tmp-1693351047.695031-98031-75392665144596/AnsiballZ_command.py && sleep 0'
+<localhost> EXEC /bin/sh -c '/usr/bin/env python3 /root/.ansible/tmp/ansible-tmp-1693351047.695031-98031-75392665144596/AnsiballZ_command.py && sleep 0'
+<localhost> EXEC /bin/sh -c 'rm -f -r /root/.ansible/tmp/ansible-tmp-1693351047.695031-98031-75392665144596/ > /dev/null 2>&1 && sleep 0'
+changed: [localhost] => {
+    "changed": true,
+    "cmd": "docker-compose run --rm --service-ports task awx-manage migrate --no-input",
+    "delta": "0:00:41.798980",
+    "end": "2023-08-30 06:18:09.895769",
+    "invocation": {
+        "module_args": {
+            "_raw_params": "docker-compose run --rm --service-ports task awx-manage migrate --no-input",
+            "_uses_shell": true,
+            "argv": null,
+            "chdir": "/root/.awx/awxcompose",
+            "creates": null,
+            "executable": null,
+            "removes": null,
+            "stdin": null,
+            "stdin_add_newline": true,
+            "strip_empty_ends": true,
+            "warn": true
+        }
+    },
+    "rc": 0,
+    "start": "2023-08-30 06:17:28.096789",
+    "stderr": "Pulling redis (redis:)...\nPulling postgres (postgres:12)...\nPulling web (ansible/awx:17.1.0)...\nCreating awx_postgres ... \r\nCreating awx_redis    ... \r\nCreating awx_redis    ... done\r\nCreating awx_postgres ... done\r\nCreating awx_web      ... \r\nCreating awx_web      ... done\r\nCreating awxcompose_task_run ... \r\nCreating awxcompose_task_run ... done",
+    "stderr_lines": [
+        "Pulling redis (redis:)...",
+        "Pulling postgres (postgres:12)...",
+        "Pulling web (ansible/awx:17.1.0)...",
+        "Creating awx_postgres ... ",
+		 "Creating awx_web      ... ",
+        "Creating awx_web      ... done",
+        "Creating awxcompose_task_run ... ",
+        "Creating awxcompose_task_run ... done"
+    ],
+    "stdout": "latest: Pulling from library/redis\nDigest: sha256:c45b9ac48fde5e7ffc59e785719165511b1327151c392c891c2f552a83446847\nStatus: Downloaded newer image for redis:latest\n12: Pulling from library/postgres\nDigest: sha256:79295d4e21553aee33a05b5f2f358a556efcc0e89b145954447472d185c0b3bb\nStatus: Downloaded newer image for postgres:12\n17.1.0: Pulling from ansible/awx\nDigest: sha256:d5d6003a9f32c3d00ee4be3275f62186937570e9e33776f848dbe9185623da97\nStatus: Downloaded newer image for ansible/awx:17.1.0\nOperations to perform:\n  Apply all migrations: auth, conf, contenttypes, main, oauth2_provider, sessions, sites, social_django, sso, taggit\nRunning migrations:\n  No migrations to apply.",
+    "stdout_lines": [
+        "latest: Pulling from library/redis",
+        "Digest: sha256:c45b9ac48fde5e7ffc59e785719165511b1327151c392c891c2f552a83446847",
+        "Status: Downloaded newer image for redis:latest",
+        "12: Pulling from library/postgres",
+        "Digest: sha256:79295d4e21553aee33a05b5f2f358a556efcc0e89b145954447472d185c0b3bb",
+        "Status: Downloaded newer image for postgres:12",
+        "17.1.0: Pulling from ansible/awx",
+        "Digest: sha256:d5d6003a9f32c3d00ee4be3275f62186937570e9e33776f848dbe9185623da97",
+        "Status: Downloaded newer image for ansible/awx:17.1.0",
+        "Operations to perform:",
+        "  Apply all migrations: auth, conf, contenttypes, main, oauth2_provider, sessions, sites, social_django, sso, taggit",
+        "Running migrations:",
+        "  No migrations to apply."
+    ]
+}
+
+TASK [local_docker : Start the containers] ************************************************************************************************************************************************************************
+task path: /root/awx-17.1.0/installer/roles/local_docker/tasks/compose.yml:50
+<localhost> ESTABLISH LOCAL CONNECTION FOR USER: root
+<localhost> EXEC /bin/sh -c 'echo ~root && sleep 0'
+<localhost> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /root/.ansible/tmp `"&& mkdir "` echo /root/.ansible/tmp/ansible-tmp-1693351090.1085532-98561-66350455411679 `" && echo ansible-tmp-1693351090.1085532-98561-66350455411679="` echo /root/.ansible/tmp/ansible-tmp-1693351090.1085532-98561-66350455411679 `" ) && sleep 0'
+redirecting (type: modules) ansible.builtin.docker_compose to community.general.docker_compose
+Using module file /usr/lib/python3/dist-packages/ansible_collections/community/general/plugins/modules/docker_compose.py
+<localhost> PUT /root/.ansible/tmp/ansible-local-97226ye1hkj6q/tmpqks1jalo TO /root/.ansible/tmp/ansible-tmp-1693351090.1085532-98561-66350455411679/AnsiballZ_docker_compose.py
+<localhost> EXEC /bin/sh -c 'chmod u+x /root/.ansible/tmp/ansible-tmp-1693351090.1085532-98561-66350455411679/ /root/.ansible/tmp/ansible-tmp-1693351090.1085532-98561-66350455411679/AnsiballZ_docker_compose.py && sleep 0'
+<localhost> EXEC /bin/sh -c '/usr/bin/env python3 /root/.ansible/tmp/ansible-tmp-1693351090.1085532-98561-66350455411679/AnsiballZ_docker_compose.py && sleep 0'
+<localhost> EXEC /bin/sh -c 'rm -f -r /root/.ansible/tmp/ansible-tmp-1693351090.1085532-98561-66350455411679/ > /dev/null 2>&1 && sleep 0'
+changed: [localhost] => {
+    "ansible_facts": {
+        "postgres": {
+            "awx_postgres": {
+                "cmd": [
+                    "postgres"
+                ],
+                "image": "postgres:12",
+                "labels": {
+                    "com.docker.compose.config-hash": "d470265646319f9ef152bb69a20a0da1a01571e4cd15df3f1f6f88b1a87c4c5b",
+                    "com.docker.compose.container-number": "1",
+                    "com.docker.compose.oneoff": "False",
+                    "com.docker.compose.project": "awxcompose",
+                    "com.docker.compose.project.config_files": "docker-compose.yml",
+                    "com.docker.compose.project.working_dir": "/root/.awx/awxcompose",
+                    "com.docker.compose.service": "postgres",
+                    "com.docker.compose.version": "1.29.2"
+                },
+                "networks": {
+                    "awxcompose_default": {
+                        "IPAddress": "172.18.0.2",
+                        "IPPrefixLen": 16,
+                        "aliases": [
+                            "6036c8be7e28",
+                            "postgres"
+                        ],
+                        "globalIPv6": "",
+                        "globalIPv6PrefixLen": 0,
+                        "links": null,
+                        "macAddress": "02:42:ac:12:00:02"
+                    }
+                },
+                "state": {
+                    "running": true,
+                    "status": "running"
+                }
+            }
+        },
+        "redis": {
+            "awx_redis": {
+                "cmd": [
+                    "/usr/local/etc/redis/redis.conf"
+                ],
+                "image": "redis",
+                "labels": {
+                    "com.docker.compose.config-hash": "ed5d9408ee7611b279f042bc9fc04e3c913b342b8eb1fabc24d688bb01526156",
+                    "com.docker.compose.container-number": "1",
+                    "com.docker.compose.oneoff": "False",
+                    "com.docker.compose.project": "awxcompose",
+                    "com.docker.compose.project.config_files": "docker-compose.yml",
+                    "com.docker.compose.project.working_dir": "/root/.awx/awxcompose",
+                    "com.docker.compose.service": "redis",
+                    "com.docker.compose.version": "1.29.2"
+                },
+                "networks": {
+                    "awxcompose_default": {
+                        "IPAddress": "172.18.0.3",
+                        "IPPrefixLen": 16,
+                        "aliases": [
+                            "redis",
+                            "eda5d0997ac0"
+                        ],
+                        "globalIPv6": "",
+                        "globalIPv6PrefixLen": 0,
+                        "links": null,
+                        "macAddress": "02:42:ac:12:00:03"
+                    }
+                },
+                "state": {
+                    "running": true,
+                    "status": "running"
+                }
+            }
+        },
+        "task": {
+            "awx_task": {
+                "cmd": [
+                    "/usr/bin/launch_awx_task.sh"
+                ],
+                "image": "ansible/awx:17.1.0",
+                "labels": {
+                    "com.docker.compose.config-hash": "074276a1d8df6b0c679ef8e65b8e1e6588a4cdb7ff3f97ddf597fd34360d0dca",
+                    "com.docker.compose.container-number": "1",
+                    "com.docker.compose.oneoff": "False",
+                    "com.docker.compose.project": "awxcompose",
+                    "com.docker.compose.project.config_files": "/root/.awx/awxcompose/docker-compose.yml",
+                    "com.docker.compose.project.working_dir": "/root/.awx/awxcompose",
+                    "com.docker.compose.service": "task",
+                    "com.docker.compose.version": "1.29.2",
+                    "org.label-schema.build-date": "20201204",
+                    "org.label-schema.license": "GPLv2",
+                    "org.label-schema.name": "CentOS Base Image",
+                    "org.label-schema.schema-version": "1.0",
+                    "org.label-schema.vendor": "CentOS"
+                },
+                "networks": {
+                    "awxcompose_default": {
+                        "IPAddress": "172.18.0.5",
+                        "IPPrefixLen": 16,
+                        "aliases": [
+                            "9a957ad92c37",
+                            "task",
+                            "awx"
+                        ],
+                        "globalIPv6": "",
+                        "globalIPv6PrefixLen": 0,
+                        "links": null,
+                        "macAddress": "02:42:ac:12:00:05"
+                    }
+                },
+                "state": {
+                    "running": true,
+                    "status": "running"
+                }
+            }
+        },
+        "web": {
+            "awx_web": {
+                "cmd": [
+                    "/bin/sh",
+                    "-c",
+                    "/usr/bin/launch_awx.sh"
+                ],
+                "image": "ansible/awx:17.1.0",
+                "labels": {
+                    "com.docker.compose.config-hash": "185d468a1f0c751f8c35b7c135f6508972ff4d642795c51db286605011b570c5",
+                    "com.docker.compose.container-number": "1",
+                    "com.docker.compose.oneoff": "False",
+                    "com.docker.compose.project": "awxcompose",
+                    "com.docker.compose.project.config_files": "docker-compose.yml",
+                    "com.docker.compose.project.working_dir": "/root/.awx/awxcompose",
+                    "com.docker.compose.service": "web",
+                    "com.docker.compose.version": "1.29.2",
+                    "org.label-schema.build-date": "20201204",
+                    "org.label-schema.license": "GPLv2",
+                    "org.label-schema.name": "CentOS Base Image",
+                    "org.label-schema.schema-version": "1.0",
+                    "org.label-schema.vendor": "CentOS"
+                },
+                "networks": {
+                    "awxcompose_default": {
+                        "IPAddress": "172.18.0.4",
+                        "IPPrefixLen": 16,
+                        "aliases": [
+                            "98434b32379c",
+                            "web",
+                            "awxweb"
+                        ],
+                        "globalIPv6": "",
+                        "globalIPv6PrefixLen": 0,
+                        "links": null,
+                        "macAddress": "02:42:ac:12:00:04"
+                    }
+                },
+                "state": {
+                    "running": true,
+                    "status": "running"
+                }
+            }
+        }
+    },
+    "changed": true,
+    "invocation": {
+        "module_args": {
+            "api_version": "auto",
+            "build": false,
+            "ca_cert": null,
+            "client_cert": null,
+            "client_key": null,
+            "debug": false,
+            "definition": null,
+            "dependencies": true,
+            "docker_host": "unix://var/run/docker.sock",
+            "files": null,
+            "hostname_check": false,
+            "nocache": false,
+            "project_name": null,
+            "project_src": "/root/.awx/awxcompose",
+            "pull": false,
+            "recreate": "smart",
+            "remove_images": null,
+            "remove_orphans": false,
+            "remove_volumes": false,
+            "restarted": true,
+            "scale": null,
+            "services": null,
+            "ssl_version": null,
+            "state": "present",
+            "stopped": false,
+            "timeout": 10,
+            "tls": false,
+            "tls_hostname": "localhost",
+            "validate_certs": false
+        }
+    },
+    "services": {
+        "postgres": {
+            "awx_postgres": {
+                "cmd": [
+                    "postgres"
+                ],
+                "image": "postgres:12",
+                "labels": {
+                    "com.docker.compose.config-hash": "d470265646319f9ef152bb69a20a0da1a01571e4cd15df3f1f6f88b1a87c4c5b",
+                    "com.docker.compose.container-number": "1",
+                    "com.docker.compose.oneoff": "False",
+                    "com.docker.compose.project": "awxcompose",
+                    "com.docker.compose.project.config_files": "docker-compose.yml",
+                    "com.docker.compose.project.working_dir": "/root/.awx/awxcompose",
+                    "com.docker.compose.service": "postgres",
+                    "com.docker.compose.version": "1.29.2"
+                },
+                "networks": {
+                    "awxcompose_default": {
+                        "IPAddress": "172.18.0.2",
+                        "IPPrefixLen": 16,
+                        "aliases": [
+                            "6036c8be7e28",
+                            "postgres"
+                        ],
+                        "globalIPv6": "",
+                        "globalIPv6PrefixLen": 0,
+                        "links": null,
+                        "macAddress": "02:42:ac:12:00:02"
+                    }
+                },
+                "state": {
+                    "running": true,
+                    "status": "running"
+                }
+            }
+        },
+        "redis": {
+            "awx_redis": {
+                "cmd": [
+                    "/usr/local/etc/redis/redis.conf"
+                ],
+                "image": "redis",
+                "labels": {
+                    "com.docker.compose.config-hash": "ed5d9408ee7611b279f042bc9fc04e3c913b342b8eb1fabc24d688bb01526156",
+                    "com.docker.compose.container-number": "1",
+                    "com.docker.compose.oneoff": "False",
+                    "com.docker.compose.project": "awxcompose",
+                    "com.docker.compose.project.config_files": "docker-compose.yml",
+                    "com.docker.compose.project.working_dir": "/root/.awx/awxcompose",
+                    "com.docker.compose.service": "redis",
+                    "com.docker.compose.version": "1.29.2"
+                },
+                "networks": {
+                    "awxcompose_default": {
+                        "IPAddress": "172.18.0.3",
+                        "IPPrefixLen": 16,
+                        "aliases": [
+                            "redis",
+                            "eda5d0997ac0"
+                        ],
+                        "globalIPv6": "",
+                        "globalIPv6PrefixLen": 0,
+                        "links": null,
+                        "macAddress": "02:42:ac:12:00:03"
+                    }
+                },
+                "state": {
+                    "running": true,
+                    "status": "running"
+                }
+            }
+        },
+        "task": {
+            "awx_task": {
+                "cmd": [
+                    "/usr/bin/launch_awx_task.sh"
+                ],
+                "image": "ansible/awx:17.1.0",
+                "labels": {
+                    "com.docker.compose.config-hash": "074276a1d8df6b0c679ef8e65b8e1e6588a4cdb7ff3f97ddf597fd34360d0dca",
+                    "com.docker.compose.container-number": "1",
+                    "com.docker.compose.oneoff": "False",
+                    "com.docker.compose.project": "awxcompose",
+                    "com.docker.compose.project.config_files": "/root/.awx/awxcompose/docker-compose.yml",
+                    "com.docker.compose.project.working_dir": "/root/.awx/awxcompose",
+                    "com.docker.compose.service": "task",
+                    "com.docker.compose.version": "1.29.2",
+                    "org.label-schema.build-date": "20201204",
+                    "org.label-schema.license": "GPLv2",
+                    "org.label-schema.name": "CentOS Base Image",
+                    "org.label-schema.schema-version": "1.0",
+                    "org.label-schema.vendor": "CentOS"
+                },
+                "networks": {
+                    "awxcompose_default": {
+                        "IPAddress": "172.18.0.5",
+                        "IPPrefixLen": 16,
+                        "aliases": [
+                            "9a957ad92c37",
+                            "task",
+                            "awx"
+                        ],
+                        "globalIPv6": "",
+                        "globalIPv6PrefixLen": 0,
+                        "links": null,
+                        "macAddress": "02:42:ac:12:00:05"
+                    }
+                },
+                "state": {
+                    "running": true,
+                    "status": "running"
+                }
+            }
+        },
+        "web": {
+            "awx_web": {
+                "cmd": [
+                    "/bin/sh",
+                    "-c",
+                    "/usr/bin/launch_awx.sh"
+                ],
+                "image": "ansible/awx:17.1.0",
+                "labels": {
+                    "com.docker.compose.config-hash": "185d468a1f0c751f8c35b7c135f6508972ff4d642795c51db286605011b570c5",
+                    "com.docker.compose.container-number": "1",
+                    "com.docker.compose.oneoff": "False",
+                    "com.docker.compose.project": "awxcompose",
+                    "com.docker.compose.project.config_files": "docker-compose.yml",
+                    "com.docker.compose.project.working_dir": "/root/.awx/awxcompose",
+                    "com.docker.compose.service": "web",
+                    "com.docker.compose.version": "1.29.2",
+                    "org.label-schema.build-date": "20201204",
+                    "org.label-schema.license": "GPLv2",
+                    "org.label-schema.name": "CentOS Base Image",
+                    "org.label-schema.schema-version": "1.0",
+                    "org.label-schema.vendor": "CentOS"
+                },
+                "networks": {
+                    "awxcompose_default": {
+                        "IPAddress": "172.18.0.4",
+                        "IPPrefixLen": 16,
+                        "aliases": [
+                            "98434b32379c",
+                            "web",
+                            "awxweb"
+                        ],
+                        "globalIPv6": "",
+                        "globalIPv6PrefixLen": 0,
+                        "links": null,
+                        "macAddress": "02:42:ac:12:00:04"
+                    }
+                },
+                "state": {
+                    "running": true,
+                    "status": "running"
+                }
+            }
+        }
+    }
+}
+
+TASK [local_docker : Update CA trust in awx_web container] ********************************************************************************************************************************************************
+task path: /root/awx-17.1.0/installer/roles/local_docker/tasks/compose.yml:56
+<localhost> ESTABLISH LOCAL CONNECTION FOR USER: root
+<localhost> EXEC /bin/sh -c 'echo ~root && sleep 0'
+<localhost> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /root/.ansible/tmp `"&& mkdir "` echo /root/.ansible/tmp/ansible-tmp-1693351096.346254-99186-142995210765249 `" && echo ansible-tmp-1693351096.346254-99186-142995210765249="` echo /root/.ansible/tmp/ansible-tmp-1693351096.346254-99186-142995210765249 `" ) && sleep 0'
+Using module file /usr/lib/python3/dist-packages/ansible/modules/command.py
+<localhost> PUT /root/.ansible/tmp/ansible-local-97226ye1hkj6q/tmpxoq89xa0 TO /root/.ansible/tmp/ansible-tmp-1693351096.346254-99186-142995210765249/AnsiballZ_command.py
+<localhost> EXEC /bin/sh -c 'chmod u+x /root/.ansible/tmp/ansible-tmp-1693351096.346254-99186-142995210765249/ /root/.ansible/tmp/ansible-tmp-1693351096.346254-99186-142995210765249/AnsiballZ_command.py && sleep 0'
+<localhost> EXEC /bin/sh -c '/usr/bin/env python3 /root/.ansible/tmp/ansible-tmp-1693351096.346254-99186-142995210765249/AnsiballZ_command.py && sleep 0'
+<localhost> EXEC /bin/sh -c 'rm -f -r /root/.ansible/tmp/ansible-tmp-1693351096.346254-99186-142995210765249/ > /dev/null 2>&1 && sleep 0'
+changed: [localhost] => {
+    "changed": true,
+    "cmd": [
+        "docker",
+        "exec",
+        "awx_web",
+        "/usr/bin/update-ca-trust"
+    ],
+    "delta": "0:00:01.371084",
+    "end": "2023-08-30 06:18:18.076647",
+    "invocation": {
+        "module_args": {
+            "_raw_params": "docker exec awx_web '/usr/bin/update-ca-trust'",
+            "_uses_shell": false,
+            "argv": null,
+            "chdir": null,
+            "creates": null,
+            "executable": null,
+            "removes": null,
+            "stdin": null,
+            "stdin_add_newline": true,
+            "strip_empty_ends": true,
+            "warn": true
+        }
+    },
+    "rc": 0,
+    "start": "2023-08-30 06:18:16.705563",
+    "stderr": "",
+    "stderr_lines": [],
+    "stdout": "",
+    "stdout_lines": []
+}
+
+TASK [local_docker : Update CA trust in awx_task container] *******************************************************************************************************************************************************
+task path: /root/awx-17.1.0/installer/roles/local_docker/tasks/compose.yml:60
+<localhost> ESTABLISH LOCAL CONNECTION FOR USER: root
+<localhost> EXEC /bin/sh -c 'echo ~root && sleep 0'
+<localhost> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /root/.ansible/tmp `"&& mkdir "` echo /root/.ansible/tmp/ansible-tmp-1693351098.2784214-99287-128500163709663 `" && echo ansible-tmp-1693351098.2784214-99287-128500163709663="` echo /root/.ansible/tmp/ansible-tmp-1693351098.2784214-99287-128500163709663 `" ) && sleep 0'
+Using module file /usr/lib/python3/dist-packages/ansible/modules/command.py
+<localhost> PUT /root/.ansible/tmp/ansible-local-97226ye1hkj6q/tmpcxhkhwz2 TO /root/.ansible/tmp/ansible-tmp-1693351098.2784214-99287-128500163709663/AnsiballZ_command.py
+<localhost> EXEC /bin/sh -c 'chmod u+x /root/.ansible/tmp/ansible-tmp-1693351098.2784214-99287-128500163709663/ /root/.ansible/tmp/ansible-tmp-1693351098.2784214-99287-128500163709663/AnsiballZ_command.py && sleep 0'
+<localhost> EXEC /bin/sh -c '/usr/bin/env python3 /root/.ansible/tmp/ansible-tmp-1693351098.2784214-99287-128500163709663/AnsiballZ_command.py && sleep 0'
+<localhost> EXEC /bin/sh -c 'rm -f -r /root/.ansible/tmp/ansible-tmp-1693351098.2784214-99287-128500163709663/ > /dev/null 2>&1 && sleep 0'
+changed: [localhost] => {
+    "changed": true,
+    "cmd": [
+        "docker",
+        "exec",
+        "awx_task",
+        "/usr/bin/update-ca-trust"
+    ],
+    "delta": "0:00:01.123467",
+    "end": "2023-08-30 06:18:19.776477",
+    "invocation": {
+        "module_args": {
+            "_raw_params": "docker exec awx_task '/usr/bin/update-ca-trust'",
+            "_uses_shell": false,
+            "argv": null,
+            "chdir": null,
+            "creates": null,
+            "executable": null,
+            "removes": null,
+            "stdin": null,
+            "stdin_add_newline": true,
+            "strip_empty_ends": true,
+            "warn": true
+        }
+    },
+    "rc": 0,
+    "start": "2023-08-30 06:18:18.653010",
+    "stderr": "",
+    "stderr_lines": [],
+    "stdout": "",
+    "stdout_lines": []
+}
+
+TASK [local_docker : Wait for launch script to create user] *******************************************************************************************************************************************************
+task path: /root/awx-17.1.0/installer/roles/local_docker/tasks/compose.yml:64
+<localhost> ESTABLISH LOCAL CONNECTION FOR USER: root
+<localhost> EXEC /bin/sh -c 'echo ~root && sleep 0'
+<localhost> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /root/.ansible/tmp `"&& mkdir "` echo /root/.ansible/tmp/ansible-tmp-1693351099.9940224-99375-93037670976126 `" && echo ansible-tmp-1693351099.9940224-99375-93037670976126="` echo /root/.ansible/tmp/ansible-tmp-1693351099.9940224-99375-93037670976126 `" ) && sleep 0'
+Using module file /usr/lib/python3/dist-packages/ansible/modules/wait_for.py
+<localhost> PUT /root/.ansible/tmp/ansible-local-97226ye1hkj6q/tmpviazm4lm TO /root/.ansible/tmp/ansible-tmp-1693351099.9940224-99375-93037670976126/AnsiballZ_wait_for.py
+<localhost> EXEC /bin/sh -c 'chmod u+x /root/.ansible/tmp/ansible-tmp-1693351099.9940224-99375-93037670976126/ /root/.ansible/tmp/ansible-tmp-1693351099.9940224-99375-93037670976126/AnsiballZ_wait_for.py && sleep 0'
+<localhost> EXEC /bin/sh -c '/usr/bin/env python3 /root/.ansible/tmp/ansible-tmp-1693351099.9940224-99375-93037670976126/AnsiballZ_wait_for.py && sleep 0'
+<localhost> EXEC /bin/sh -c 'rm -f -r /root/.ansible/tmp/ansible-tmp-1693351099.9940224-99375-93037670976126/ > /dev/null 2>&1 && sleep 0'
+ok: [localhost] => {
+    "changed": false,
+    "elapsed": 9,
+    "invocation": {
+        "module_args": {
+            "active_connection_states": [
+                "ESTABLISHED",
+                "FIN_WAIT1",
+                "FIN_WAIT2",
+                "SYN_RECV",
+                "SYN_SENT",
+                "TIME_WAIT"
+            ],
+            "connect_timeout": 5,
+            "delay": 0,
+            "exclude_hosts": null,
+            "host": "127.0.0.1",
+            "msg": null,
+            "path": null,
+            "port": null,
+            "search_regex": null,
+            "sleep": 1,
+            "state": "started",
+            "timeout": 10
+        }
+    },
+    "match_groupdict": {},
+    "match_groups": [],
+    "path": null,
+    "port": null,
+    "search_regex": null,
+    "state": "started"
+}
+
+TASK [local_docker : Create Preload data] *************************************************************************************************************************************************************************
+task path: /root/awx-17.1.0/installer/roles/local_docker/tasks/compose.yml:69
+<localhost> ESTABLISH LOCAL CONNECTION FOR USER: root
+<localhost> EXEC /bin/sh -c 'echo ~root && sleep 0'
+<localhost> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /root/.ansible/tmp `"&& mkdir "` echo /root/.ansible/tmp/ansible-tmp-1693351110.9557252-99497-47452105608295 `" && echo ansible-tmp-1693351110.9557252-99497-47452105608295="` echo /root/.ansible/tmp/ansible-tmp-1693351110.9557252-99497-47452105608295 `" ) && sleep 0'
+Using module file /usr/lib/python3/dist-packages/ansible/modules/command.py
+<localhost> PUT /root/.ansible/tmp/ansible-local-97226ye1hkj6q/tmpga70_tt2 TO /root/.ansible/tmp/ansible-tmp-1693351110.9557252-99497-47452105608295/AnsiballZ_command.py
+<localhost> EXEC /bin/sh -c 'chmod u+x /root/.ansible/tmp/ansible-tmp-1693351110.9557252-99497-47452105608295/ /root/.ansible/tmp/ansible-tmp-1693351110.9557252-99497-47452105608295/AnsiballZ_command.py && sleep 0'
+<localhost> EXEC /bin/sh -c '/usr/bin/env python3 /root/.ansible/tmp/ansible-tmp-1693351110.9557252-99497-47452105608295/AnsiballZ_command.py && sleep 0'
+<localhost> EXEC /bin/sh -c 'rm -f -r /root/.ansible/tmp/ansible-tmp-1693351110.9557252-99497-47452105608295/ > /dev/null 2>&1 && sleep 0'
+ok: [localhost] => {
+    "changed": false,
+    "cmd": [
+        "docker",
+        "exec",
+        "awx_task",
+        "bash",
+        "-c",
+        "/usr/bin/awx-manage create_preload_data"
+    ],
+    "delta": "0:00:08.762535",
+    "end": "2023-08-30 06:18:40.353621",
+    "invocation": {
+        "module_args": {
+            "_raw_params": "docker exec awx_task bash -c \"/usr/bin/awx-manage create_preload_data\"",
+            "_uses_shell": false,
+            "argv": null,
+            "chdir": null,
+            "creates": null,
+            "executable": null,
+            "removes": null,
+            "stdin": null,
+            "stdin_add_newline": true,
+            "strip_empty_ends": true,
+            "warn": true
+        }
+    },
+    "rc": 0,
+    "start": "2023-08-30 06:18:31.591086",
+    "stderr": "",
+    "stderr_lines": [],
+    "stdout": "An organization is already in the system, exiting.\n(changed: False)",
+    "stdout_lines": [
+        "An organization is already in the system, exiting.",
+        "(changed: False)"
+    ]
+}
+META: ran handlers
+META: ran handlers
+
+PLAY RECAP ********************************************************************************************************************************************************************************************************
+localhost                  : ok=21   changed=7    unreachable=0    failed=0    skipped=73   rescued=0    ignored=1
